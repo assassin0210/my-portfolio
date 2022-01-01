@@ -10,7 +10,7 @@ function App() {
   const { t } = useTranslate();
   console.log(localStorage.getItem("lang"));
   console.log(t);
-  useEffect(() => console.log(t), [t]);
+  useEffect(() => console.log(""), [t]);
   return (
     <Layout>
       <LeftMenu />

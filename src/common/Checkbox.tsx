@@ -1,19 +1,24 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { textContent } from "../localization";
 
-type toggle = "ru" | "en";
+type ToggleType = "ru" | "en";
 
 export const Checkbox = () => {
-  const [toggle, setToggle] = useState<toggle>("ru");
+  const [toggle, setToggle] = useState<ToggleType>("ru");
   const [toggle1, setToggle1] = useState<boolean>(false);
   const lang = localStorage.getItem("lang");
+  useEffect(() => textContent.setLanguage(toggle), [toggle]);
   useEffect(() => {
     if (!localStorage.getItem("lang")) {
       localStorage.setItem("lang", "ru");
       setToggle("ru");
+      textContent.setLanguage("ru");
     } else if (localStorage.getItem("lang") === "ru") {
       setToggle("ru");
+      textContent.setLanguage("ru");
     } else if (localStorage.getItem("lang") === "en") {
+      textContent.setLanguage("en");
       setToggle("en");
     }
   }, [lang]);
@@ -42,6 +47,7 @@ export const Checkbox = () => {
         <LangItem toggle={toggle === "ru"}>Ru</LangItem>
         <LangItem toggle={toggle === "en"}>En</LangItem>
       </Lang>
+      {textContent.title}
     </Wrapper>
   );
 };

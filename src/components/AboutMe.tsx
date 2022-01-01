@@ -7,8 +7,10 @@ import {
   Title,
 } from "../styled/common";
 import { StackItem } from "./StackItem";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import styled from "styled-components";
+import { useTranslate } from "../hooks/translate";
+import { textContent } from "../localization";
 
 export const AboutMe = () => {
   const stack = useMemo(
@@ -102,21 +104,20 @@ export const AboutMe = () => {
     ],
     []
   );
+  useEffect(() => {
+    console.log(textContent.getLanguage());
+  }, []);
   return (
     <Container>
       <ScrollSection>
-        <Title>About me</Title>
-        <SubtitleWrapper>
-          <GreenTextTick>26 лет</GreenTextTick>
-          <GreenTextTick>Тирасполь</GreenTextTick>
-          <GreenText>Helium10</GreenText>
-        </SubtitleWrapper>
-        <Text>
-          Я люблю знакомиться с новыми технологиями и использовать их в своих
-          проектах. Нравится работать над мелочами и доводить их до идеала. Не
-          обладаю консервативным складом ума всегда открыт к новому
-        </Text>
-        <Subtitle>my stack</Subtitle>
+        <Title>{textContent.title}</Title>
+        {/*<SubtitleWrapper>*/}
+        {/*  <GreenTextTick>{textContent.aboutMe.year}</GreenTextTick>*/}
+        {/*  <GreenTextTick>{textContent.aboutMe.city}</GreenTextTick>*/}
+        {/*  <GreenText>{textContent.aboutMe.company}</GreenText>*/}
+        {/*</SubtitleWrapper>*/}
+        {/*<Text>{textContent.aboutMe.text}</Text>*/}
+        {/*<Subtitle>{textContent.aboutMe.stack}</Subtitle>*/}
 
         <StackList>
           {stack.map((stack) => (

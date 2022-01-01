@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const useTranslate = () => {
+  const [lang, setLang] = useState(localStorage.getItem("lang"));
   useEffect(() => {
-    localStorage.getItem("lang");
-  }, [localStorage.getItem("lang")]);
-  return { t: localStorage.getItem("lang") };
+    setLang(localStorage.getItem("lang"));
+  }, [lang]);
+  return { t: lang };
 };
