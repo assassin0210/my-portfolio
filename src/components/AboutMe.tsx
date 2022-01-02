@@ -1,16 +1,8 @@
-import {
-  Container,
-  GreenText,
-  ScrollSection,
-  Subtitle,
-  Text,
-  Title,
-} from "../styled/common";
+import { Container, GreenText, ScrollSection, Title } from "../styled/common";
 import { StackItem } from "./StackItem";
 import { useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
-import { textContent } from "../localization";
 
 export const AboutMe = () => {
   const stack = useMemo(
@@ -105,12 +97,14 @@ export const AboutMe = () => {
     []
   );
   useEffect(() => {
-    console.log(textContent.getLanguage());
+    // console.log(textContent.getLanguage());
   }, []);
+
+  const { t } = useTranslate();
   return (
     <Container>
       <ScrollSection>
-        <Title>{textContent.title}</Title>
+        <Title>{t.title}</Title>
         {/*<SubtitleWrapper>*/}
         {/*  <GreenTextTick>{textContent.aboutMe.year}</GreenTextTick>*/}
         {/*  <GreenTextTick>{textContent.aboutMe.city}</GreenTextTick>*/}

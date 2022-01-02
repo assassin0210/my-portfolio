@@ -1,16 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { LeftMenu } from "./components/LeftMenu";
 import { Avatar } from "./components/Avatar";
 import { Route, Routes } from "react-router-dom";
 import { AboutMe } from "./components/AboutMe";
 import styled from "styled-components";
-import { useTranslate } from "./hooks/translate";
 
 function App() {
-  const { t } = useTranslate();
-  console.log(localStorage.getItem("lang"));
-  console.log(t);
-  useEffect(() => console.log(""), [t]);
   return (
     <Layout>
       <LeftMenu />

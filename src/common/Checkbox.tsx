@@ -1,53 +1,42 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
-import { textContent } from "../localization";
-
-type ToggleType = "ru" | "en";
+import { useEffect } from "react";
+import { useTranslate } from "../hooks/translate";
+import { useSelector } from "react-redux";
+import { RootStateType } from "../core/rootReducer";
 
 export const Checkbox = () => {
-  const [toggle, setToggle] = useState<ToggleType>("ru");
-  const [toggle1, setToggle1] = useState<boolean>(false);
-  const lang = localStorage.getItem("lang");
-  useEffect(() => textContent.setLanguage(toggle), [toggle]);
+  const lang = useSelector<RootStateType>((state) => state.lang.lang);
+  const { t, setT } = useTranslate();
   useEffect(() => {
-    if (!localStorage.getItem("lang")) {
-      localStorage.setItem("lang", "ru");
-      setToggle("ru");
-      textContent.setLanguage("ru");
-    } else if (localStorage.getItem("lang") === "ru") {
-      setToggle("ru");
-      textContent.setLanguage("ru");
+    if (localStorage.getItem("lang") === "ru") {
+      setT(false);
     } else if (localStorage.getItem("lang") === "en") {
-      textContent.setLanguage("en");
-      setToggle("en");
+      setT(true);
     }
-  }, [lang]);
+  }, [setT]);
 
-  const test = () => {
-    setToggle1(!toggle1);
-    if (lang === "ru") {
-      localStorage.setItem("lang", "en");
-      setToggle("ru");
-    } else {
-      localStorage.setItem("lang", "ru");
-      setToggle("en");
+  const checkHandler = () => {
+    if (lang === "en") {
+      setT(false);
+    } else if (lang === "ru") {
+      setT(true);
     }
   };
   return (
     <Wrapper>
       <input
-        onChange={test}
-        checked={toggle === "en"}
+        onChange={checkHandler}
+        checked={lang === "en"}
         type="checkbox"
         id="toggle"
         className="checkbox"
       />
       <label htmlFor="toggle" className="switch" />
       <Lang>
-        <LangItem toggle={toggle === "ru"}>Ru</LangItem>
-        <LangItem toggle={toggle === "en"}>En</LangItem>
+        <LangItem toggle={lang === "ru"}>Ru</LangItem>
+        <LangItem toggle={lang === "en"}>En</LangItem>
       </Lang>
-      {textContent.title}
+      {t.aboutMe.title}
     </Wrapper>
   );
 };
