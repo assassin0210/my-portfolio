@@ -54,6 +54,7 @@ export const scrollStylesCSS = css`
 
     &::-webkit-scrollbar-thumb {
       border: 4px solid transparent;
+      padding: 20px;
       background-clip: padding-box;
       box-sizing: border-box;
       border-radius: 100px;
@@ -63,15 +64,50 @@ export const scrollStylesCSS = css`
 `;
 
 export const Container = styled.div`
+  position: relative;
+  padding: 10px 5px;
   width: 700px;
   background-color: ${({ theme }) => theme.color.darkGrey};
   margin: 30px 0;
-  padding: 35px 10px 10px 30px;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
+  :before {
+    content: "";
+    top: 0;
+    height: 30px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin-right: 10px;
+    z-index: 100;
+    background-image: linear-gradient(
+      to bottom,
+      ${({ theme }) => theme.color.darkGrey} 45%,
+      ${({ theme }) => theme.color.darkGrey} 23%,
+      transparent 100%
+    );
+  }
+  :after {
+    content: "";
+    bottom: 0;
+    height: 30px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin-right: 10px;
+    z-index: 100;
+    background-image: linear-gradient(
+      to top,
+      ${({ theme }) => theme.color.darkGrey} 45%,
+      ${({ theme }) => theme.color.darkGrey} 23%,
+      transparent 100%
+    );
+  }
 `;
 
 export const ScrollSection = styled.section`
+  padding: 25px 10px 10px 30px;
   ${scrollStylesCSS};
 `;
 
@@ -117,7 +153,12 @@ export const cssGreenHover = css`
   }
   transition: all 0.3s ease-in-out;
 `;
-export const SocialIcon = styled(FontAwesomeIcon)`
-  font-size: 24px;
-  color: white;
+export const Icon = styled(FontAwesomeIcon)<{ $size?: string }>`
+  font-size: ${({ $size }) => ($size ? $size : "25px")};
+`;
+
+export const FlexCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

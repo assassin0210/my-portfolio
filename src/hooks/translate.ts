@@ -7,6 +7,7 @@ import { setLang } from "../core/translateSlice";
 const textContent = new LocalizedStrings({
   ru: {
     title: "ru",
+    name: "Александр Соколов",
     aboutMe: {
       title: "Обо мне",
       year: "26 лет",
@@ -19,20 +20,27 @@ const textContent = new LocalizedStrings({
       title: "Мои контакты",
       text: "Если у вас есть какие-либо вопросы относительно этого резюме , этого сайта или ваших отношений со мной, пожалуйста, не стесняйтесь обращаться по нижеуказанной электронной почте ,номеру телефона или социальным сетям",
     },
+    myWorks: {
+      title: "Мои работы",
+    },
   },
   en: {
     title: "en",
+    name: "Alexandr Sokolov",
     aboutMe: {
       title: "About me",
       year: "26 years",
       city: "Tiraspol",
       company: "Helium 10",
       text: "I like to get acquainted with new technologies and use them in my mountains. I like to work on little things and bring them to perfection. Not I have a conservative mindset, always open to new things.",
-      stack: "My Stack",
+      stack: "My stack",
     },
     contactMe: {
       title: "Contact me",
       text: "If you have any questions regarding this resume, this website or your relationship with me, please do not hesitate to contact me by the following email, phone number or social networks",
+    },
+    myWorks: {
+      title: "My works",
     },
   },
 });

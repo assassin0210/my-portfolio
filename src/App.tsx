@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { AboutMe } from "./components/AboutMe";
 import styled from "styled-components";
 import { ContactMe } from "./components/ContactMe";
+import { MyWorks } from "./components/MyWorks";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AboutMe />} />
         <Route path="/contacts" element={<ContactMe />} />
-        <Route path="/my-works" element={<AboutMe />} />
+        <Route path="/my-works" element={<MyWorks />} />
         <Route path="/resume" element={<AboutMe />} />
       </Routes>
     </Layout>

@@ -12,6 +12,7 @@ export interface ISocialMedia {
   href: string;
   icon: IconProp;
   text?: string;
+  $size?: string;
 }
 
 export const socialData: ISocialMedia[] = [

@@ -1,19 +1,29 @@
 import { FC } from "react";
-import { cssGreenHover, SocialIcon } from "../styled/common";
+import { cssGreenHover, Icon, Text } from "../styled/common";
 import { ISocialMedia } from "../const";
 import styled from "styled-components";
 
-export const SocialMedia: FC<ISocialMedia> = ({ icon, href, children }) => {
+export const SocialMedia: FC<ISocialMedia> = ({
+  icon,
+  href,
+  children,
+  $size,
+}) => {
   return (
-    <Wrapper target={"_blank"} href={href} rel="noreferrer">
-      <SocialIcon icon={icon} />
-      {children}
+    <Wrapper target={"_blank"} href={href}>
+      <Icon $size={$size} icon={icon} />
+      <ContactText>{children}</ContactText>
     </Wrapper>
   );
 };
 const Wrapper = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   ${cssGreenHover};
+`;
+
+const ContactText = styled(Text)`
+  margin: 0;
+  padding: 0;
 `;

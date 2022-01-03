@@ -3,15 +3,17 @@ import { ImageWrapper, Title } from "../styled/common";
 
 import { socialData } from "../const";
 import { SocialMedia } from "../common/SocialMedia";
+import { useTranslate } from "../hooks/translate";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logo = require("../static/main.jpg");
 
 export const Avatar = () => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const logo = require("../static/main.jpg");
+  const { t } = useTranslate();
   return (
     <ImageWrapper>
       <Image src={logo} alt="avatar" />
       <Contact>
-        <Name>Alexandr Sokolov</Name>
+        <Name>{t.name}</Name>
         <SocialMediaWrapper>
           {socialData.map(({ icon, href }) => (
             <SocialMedia icon={icon} href={href} key={href} />
@@ -34,6 +36,7 @@ const Contact = styled.div`
 
 const Name = styled(Title)`
   font-size: 50px;
+  line-height: 60px;
 `;
 const SocialMediaWrapper = styled.div`
   display: flex;
