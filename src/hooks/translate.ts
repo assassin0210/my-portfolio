@@ -15,6 +15,10 @@ const textContent = new LocalizedStrings({
       text: "Я люблю знакомиться с новыми технологиями и использовать их в своих проектах. Нравится работать над мелочами и доводить их до идеала. Не обладаю консервативным складом ума всегда открыт к новому.",
       stack: "Мои навыки",
     },
+    contactMe: {
+      title: "Мои контакты",
+      text: "Если у вас есть какие-либо вопросы относительно этого резюме , этого сайта или ваших отношений со мной, пожалуйста, не стесняйтесь обращаться по нижеуказанной электронной почте ,номеру телефона или социальным сетям",
+    },
   },
   en: {
     title: "en",
@@ -26,23 +30,24 @@ const textContent = new LocalizedStrings({
       text: "I like to get acquainted with new technologies and use them in my mountains. I like to work on little things and bring them to perfection. Not I have a conservative mindset, always open to new things.",
       stack: "My Stack",
     },
+    contactMe: {
+      title: "Contact me",
+      text: "If you have any questions regarding this resume, this website or your relationship with me, please do not hesitate to contact me by the following email, phone number or social networks",
+    },
   },
 });
 export const useTranslate = () => {
   const lang = useSelector<RootStateType>((state) => state.lang.lang);
-  console.log("текущий язык", textContent.getLanguage());
   const [currentState, updateState] = useState(1);
   const forceUpdate = useCallback(
     () => updateState(currentState + 1),
     [currentState]
   );
-  console.log("стор", lang);
   const dispatch = useDispatch();
   useEffect(() => {
     textContent.setLanguage(lang as string);
     forceUpdate();
-    console.log("эффект");
-  }, [forceUpdate, lang]);
+  }, [lang]);
 
   const setT = (toggle: boolean) => {
     if (!toggle) {
@@ -52,5 +57,5 @@ export const useTranslate = () => {
     }
   };
 
-  return { t: textContent, setT };
+  return { lang, t: textContent, setT };
 };

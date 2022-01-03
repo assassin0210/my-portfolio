@@ -1,6 +1,25 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const SkeletonAnim = keyframes`
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+`;
+export const Skeleton = styled.div`
+  border-radius: 6px;
+  background: linear-gradient(90deg, #c4ccd3 35%, #f2f5f7 60%, #c4ccd3 80%);
+  background-size: 400% 100%;
+  animation: ${SkeletonAnim} 1s infinite;
+  height: 100%;
+  width: 100%;
+`;
 
 export const ImageWrapper = styled.div`
+  position: relative;
   width: 470px;
   overflow: hidden;
   z-index: 20;
@@ -79,5 +98,26 @@ export const Subtitle = styled(Title)`
 export const Text = styled.p`
   margin-bottom: 30px;
   padding-bottom: 30px;
+`;
+
+export const TextWithLine = styled.p`
+  margin-bottom: 30px;
+  padding-bottom: 30px;
   border-bottom: 1px solid ${({ theme }) => theme.color.lightGrey};
+`;
+
+export const cssGreenHover = css`
+  &:active,
+  :hover {
+    color: ${({ theme }) => theme.color.green};
+    path {
+      fill: ${({ theme }) => theme.color.green};
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  transition: all 0.3s ease-in-out;
+`;
+export const SocialIcon = styled(FontAwesomeIcon)`
+  font-size: 24px;
+  color: white;
 `;

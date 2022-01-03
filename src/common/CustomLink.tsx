@@ -16,7 +16,5 @@ const LinkStyle = styled(Link)<{ $active: boolean }>`
   }
   path {
     fill: ${({ $active }) => $active && "#00c483"};
-    font-size: 35px;
-    transition: all 0.2s ease-in-out;
   }
 `;

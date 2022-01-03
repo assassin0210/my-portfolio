@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { useEffect } from "react";
 import { useTranslate } from "../hooks/translate";
-import { useSelector } from "react-redux";
-import { RootStateType } from "../core/rootReducer";
 
 export const Checkbox = () => {
-  const lang = useSelector<RootStateType>((state) => state.lang.lang);
-  const { t, setT } = useTranslate();
+  const { lang, setT } = useTranslate();
   useEffect(() => {
     if (localStorage.getItem("lang") === "ru") {
       setT(false);
@@ -36,7 +33,6 @@ export const Checkbox = () => {
         <LangItem toggle={lang === "ru"}>Ru</LangItem>
         <LangItem toggle={lang === "en"}>En</LangItem>
       </Lang>
-      {t.aboutMe.title}
     </Wrapper>
   );
 };

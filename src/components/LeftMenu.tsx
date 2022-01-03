@@ -9,6 +9,7 @@ import {
 import { CustomLink } from "../common/CustomLink";
 import { Caret } from "../common/Caret";
 import { Checkbox } from "../common/Checkbox";
+import { cssGreenHover } from "../styled/common";
 
 export const LeftMenu = () => {
   return (
@@ -65,9 +66,5 @@ const MenuIcon = styled(FontAwesomeIcon)`
   width: 50px;
   color: ${({ theme }) => theme.color.lightGrey};
   cursor: pointer;
-  &:active,
-  :hover {
-    color: ${({ theme }) => theme.color.green};
-  }
-  transition: all 0.1s ease-in-out;
+  ${cssGreenHover}
 `;

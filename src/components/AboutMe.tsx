@@ -1,6 +1,13 @@
-import { Container, GreenText, ScrollSection, Title } from "../styled/common";
+import {
+  Container,
+  GreenText,
+  ScrollSection,
+  Title,
+  Subtitle,
+  TextWithLine,
+} from "../styled/common";
 import { StackItem } from "./StackItem";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 
@@ -96,22 +103,19 @@ export const AboutMe = () => {
     ],
     []
   );
-  useEffect(() => {
-    // console.log(textContent.getLanguage());
-  }, []);
 
   const { t } = useTranslate();
   return (
     <Container>
       <ScrollSection>
-        <Title>{t.title}</Title>
-        {/*<SubtitleWrapper>*/}
-        {/*  <GreenTextTick>{textContent.aboutMe.year}</GreenTextTick>*/}
-        {/*  <GreenTextTick>{textContent.aboutMe.city}</GreenTextTick>*/}
-        {/*  <GreenText>{textContent.aboutMe.company}</GreenText>*/}
-        {/*</SubtitleWrapper>*/}
-        {/*<Text>{textContent.aboutMe.text}</Text>*/}
-        {/*<Subtitle>{textContent.aboutMe.stack}</Subtitle>*/}
+        <Title>{t.aboutMe.title}</Title>
+        <SubtitleWrapper>
+          <GreenTextTick>{t.aboutMe.year}</GreenTextTick>
+          <GreenTextTick>{t.aboutMe.city}</GreenTextTick>
+          <GreenText>{t.aboutMe.company}</GreenText>
+        </SubtitleWrapper>
+        <TextWithLine>{t.aboutMe.text}</TextWithLine>
+        <Subtitle>{t.aboutMe.stack}</Subtitle>
 
         <StackList>
           {stack.map((stack) => (
