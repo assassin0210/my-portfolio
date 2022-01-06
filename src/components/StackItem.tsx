@@ -7,17 +7,17 @@ export const StackItem: FC<{ name: string; src: string; link: string }> = ({
   name,
   link,
 }) => {
-  const [test, setTest] = useState(false);
+  const [status, setStatus] = useState(false);
 
   const loaded = useCallback(() => {
-    setTest(true);
+    setStatus(true);
   }, []);
   return (
     <>
       <Wrapper onLoad={loaded} target={"_blank"} href={link}>
-        <StackImg loaded={test} src={src} alt={name} />
-        {!test && <AboutMeItemSkeleton />}
-        {test && <p>{name}</p>}
+        <StackImg loaded={status} src={src} alt={name} />
+        {!status && <AboutMeItemSkeleton />}
+        {status && <p>{name}</p>}
       </Wrapper>
     </>
   );

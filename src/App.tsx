@@ -6,6 +6,7 @@ import { AboutMe } from "./components/AboutMe";
 import styled from "styled-components";
 import { ContactMe } from "./components/ContactMe";
 import { MyWorks } from "./components/MyWorks";
+import { Resume } from "./components/Resume";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/" element={<AboutMe />} />
         <Route path="/contacts" element={<ContactMe />} />
         <Route path="/my-works" element={<MyWorks />} />
-        <Route path="/resume" element={<AboutMe />} />
+        <Route path="/resume" element={<Resume />} />
       </Routes>
     </Layout>
   );

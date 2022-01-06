@@ -80,6 +80,7 @@ export const Container = styled.div`
     display: block;
     width: 100%;
     margin-right: 10px;
+    margin-top: 10px;
     z-index: 100;
     background-image: linear-gradient(
       to bottom,
@@ -143,6 +144,7 @@ export const TextWithLine = styled.p`
 `;
 
 export const cssGreenHover = css`
+  cursor: pointer;
   &:active,
   :hover {
     color: ${({ theme }) => theme.color.green};
@@ -161,4 +163,15 @@ export const FlexCenter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+export const GreenTextTick = styled(GreenText)`
+  &:after {
+    content: "/";
+    padding: 0 15px;
+    color: ${({ theme }) => theme.color.lightGrey};
+    opacity: 0.5;
+  }
+`;
+export const SubtitleWrapper = styled.div`
+  margin: 40px 0;
 `;

@@ -22,6 +22,8 @@ const textContent = new LocalizedStrings({
     },
     myWorks: {
       title: "Мои работы",
+      description:
+        "Здесь находятся все проекты что я делал за исключением корпоративных. В них отображены все мои основные навыки. Часть из них учебных , на которых я учился.",
     },
   },
   en: {
@@ -41,6 +43,8 @@ const textContent = new LocalizedStrings({
     },
     myWorks: {
       title: "My works",
+      description:
+        "Here are all the projects that I have done with the exception of corporate ones. They display all my basic skills. Some of them are educational ones that I studied at.",
     },
   },
 });

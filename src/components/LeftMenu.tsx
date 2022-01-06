@@ -65,6 +65,5 @@ const MenuIcon = styled(FontAwesomeIcon)`
   font-size: 30px;
   width: 50px;
   color: ${({ theme }) => theme.color.lightGrey};
-  cursor: pointer;
   ${cssGreenHover}
 `;
