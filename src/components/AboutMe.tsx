@@ -10,11 +10,15 @@ import { StackItem } from "./StackItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 import { stackData } from "../const";
+import React from "react";
+import { Button } from "../App";
 
 export const AboutMe = () => {
   const { t } = useTranslate();
   return (
     <Container>
+      <Button>112312323</Button>
+
       <ScrollSection>
         <Title>{t.aboutMe.title}</Title>
         <SubtitleWrapper>

@@ -26,7 +26,16 @@ function App() {
 
 export default App;
 
+export const Button = styled.div`
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  color: white;
+`;
+
 const Layout = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   height: 100vh;

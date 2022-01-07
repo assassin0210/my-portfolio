@@ -5,7 +5,6 @@ import {
   ScrollSection,
   Subtitle,
   SubtitleWrapper,
-  Text,
   TextWithLine,
   Title,
 } from "../styled/common";
