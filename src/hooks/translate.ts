@@ -25,6 +25,16 @@ const textContent = new LocalizedStrings({
       description:
         "Здесь находятся все проекты что я делал за исключением корпоративных. В них отображены все мои основные навыки. Часть из них учебных , на которых я учился.",
     },
+    resume: {
+      title: "Резюме",
+      text: {
+        one: "2 года в frontend ",
+        two: "1 год в команде",
+        three: "Middle Frontend ",
+      },
+      subtitle:
+        "Frontend developer с 2 летним опытом проектирования и разработки пользовательских интерфейсов . Начинал верстальщиком. Сейчас работаю  с использованием  в своих проектах TypeScript и реакт.  Пол года опыт работы с GitHub в команде . Проходил курсы по Photoshop Illustrator.",
+    },
   },
   en: {
     title: "en",
@@ -45,6 +55,16 @@ const textContent = new LocalizedStrings({
       title: "My works",
       description:
         "Here are all the projects that I have done with the exception of corporate ones. They display all my basic skills. Some of them are educational ones that I studied at.",
+    },
+    resume: {
+      title: "Resume",
+      text: {
+        one: "2 years in the frontend ",
+        two: "1 year in the team",
+        three: "Middle Frontend ",
+      },
+      subtitle:
+        "Frontend developer with 2 years of experience in designing and developing user interfaces . I started as a layout designer. Now I am working with the use of TypeScript and react in my projects. Half a year of experience working with GitHub in a team . I took courses in Photoshop Illustrator.",
     },
   },
 });

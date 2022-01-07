@@ -11,7 +11,7 @@ export const SkillItem = ({
   return (
     <div>
       <TextWrapper>
-        <span>{skill}</span>
+        <Text>{skill}</Text>
         <PercentNum>
           {percent}
           <Percent>%</Percent>
@@ -22,8 +22,13 @@ export const SkillItem = ({
   );
 };
 
+const Text = styled.span`
+  color: ${({ theme }) => theme.color.white};
+  font-size: calc(12px + 4 * (100vw / 1700));
+`;
+
 const Percent = styled.span`
-  font-size: 14px;
+  font-size: calc(10px + 4 * (100vw / 1700));
 `;
 
 const PercentNum = styled.span`

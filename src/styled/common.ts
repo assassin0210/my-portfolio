@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { media } from "./media";
 
 const SkeletonAnim = keyframes`
   0% {
@@ -25,6 +26,12 @@ export const ImageWrapper = styled.div`
   z-index: 20;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4), 0 4px 20px 0 rgba(0, 0, 0, 0.7);
   border-radius: 3px;
+  ${media.extraDesktopBefore} {
+    width: 340px;
+  }
+  ${media.laptopBefore} {
+    display: none;
+  }
 
   img {
     width: 100%;
@@ -66,12 +73,22 @@ export const scrollStylesCSS = css`
 export const Container = styled.div`
   position: relative;
   padding: 10px 5px;
-  width: 700px;
+  width: 600px;
   background-color: ${({ theme }) => theme.color.darkGrey};
   margin: 30px 0;
   display: flex;
   overflow: hidden;
   flex-direction: column;
+
+  ${media.extraDesktopBefore} {
+    width: 700px;
+    margin: 60px 0;
+  }
+  ${media.laptopBefore} {
+    margin: 0;
+    width: 430px;
+  }
+
   :before {
     content: "";
     top: 0;
@@ -108,26 +125,29 @@ export const Container = styled.div`
 `;
 
 export const ScrollSection = styled.section`
-  padding: 25px 10px 10px 30px;
+  padding: 30px 10px 10px 30px;
   ${scrollStylesCSS};
+  ${media.laptopBefore} {
+    padding: 30px 6px;
+  }
 `;
 
 export const Title = styled.h1`
-  font-size: 60px;
+  font-size: calc(28px + 32 * (100vw / 1700));
   font-weight: bold;
-  line-height: 80px;
   margin-bottom: 15px;
   color: ${({ theme }) => theme.color.white};
 `;
 
 export const GreenText = styled.span`
-  font-size: 20px;
+  font-size: calc(14px + 4 * (100vw / 1700));
   font-style: italic;
+  margin: 10px 0;
   color: ${({ theme }) => theme.color.green};
 `;
 
 export const Subtitle = styled(Title)`
-  font-size: 40px;
+  font-size: calc(22px + 18 * (100vw / 1700));
   margin-bottom: 15px;
   line-height: 40px;
 `;
@@ -156,7 +176,8 @@ export const cssGreenHover = css`
   transition: all 0.3s ease-in-out;
 `;
 export const Icon = styled(FontAwesomeIcon)<{ $size?: string }>`
-  font-size: ${({ $size }) => ($size ? $size : "25px")};
+  font-size: ${({ $size }) =>
+    $size ? $size : "calc(18px + 12 * (100vw / 1700))"};
 `;
 
 export const FlexCenter = styled.div`
@@ -167,11 +188,13 @@ export const FlexCenter = styled.div`
 export const GreenTextTick = styled(GreenText)`
   &:after {
     content: "/";
-    padding: 0 15px;
+    padding: 0 10px;
     color: ${({ theme }) => theme.color.lightGrey};
     opacity: 0.5;
   }
 `;
 export const SubtitleWrapper = styled.div`
   margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
 `;

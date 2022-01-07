@@ -35,7 +35,8 @@ const Contact = styled.div`
 `;
 
 const Name = styled(Title)`
-  font-size: 50px;
+  font-size: calc(24px + 26 * (100vw / 1700));
+
   line-height: 60px;
 `;
 const SocialMediaWrapper = styled.div`

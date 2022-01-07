@@ -10,6 +10,7 @@ import { CustomLink } from "../common/CustomLink";
 import { Caret } from "../common/Caret";
 import { Checkbox } from "../common/Checkbox";
 import { cssGreenHover } from "../styled/common";
+import { media } from "../styled/media";
 
 export const LeftMenu = () => {
   return (
@@ -39,18 +40,28 @@ export const LeftMenu = () => {
 
 const Menu = styled.div`
   padding-bottom: 30px;
-  margin: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: rgb(28, 29, 31);
-  background: linear-gradient(
-    90deg,
-    rgba(28, 29, 31, 1) 0%,
-    rgba(9, 8, 8, 1) 100%
-  );
-  width: 100px;
+  background: ${({ theme }) => theme.color.darkGrey};
+  width: 80px;
+  position: relative;
+  left: 0;
+  ${media.extraDesktopBefore} {
+    padding-bottom: 60px;
+    margin: 60px 0;
+  }
+  ${media.laptopBefore} {
+    margin: 0;
+  }
+  ${media.laptop} {
+    background: linear-gradient(
+      90deg,
+      rgba(28, 29, 31, 1) 0%,
+      rgba(9, 8, 8, 1) 100%
+    );
+  }
 `;
 
 const List = styled.div`
@@ -58,11 +69,11 @@ const List = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  width: 50px;
+  width: 30px;
 `;
 
 const MenuIcon = styled(FontAwesomeIcon)`
-  font-size: 30px;
+  font-size: calc(20px + 10 * (100vw / 1700));
   width: 50px;
   color: ${({ theme }) => theme.color.lightGrey};
   ${cssGreenHover}

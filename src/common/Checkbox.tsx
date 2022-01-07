@@ -54,7 +54,6 @@ const Wrapper = styled.div`
 
   .switch {
     cursor: pointer;
-
     position: relative;
     display: inline-block;
     width: 40px;

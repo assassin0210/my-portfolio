@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { ContactMe } from "./components/ContactMe";
 import { MyWorks } from "./components/MyWorks";
 import { Resume } from "./components/Resume";
+import { media } from "./styled/media";
 
 function App() {
   return (
@@ -30,4 +31,10 @@ const Layout = styled.div`
   justify-content: center;
   height: 100vh;
   padding: 6px 0;
+  ${media.extraDesktopBefore} {
+    padding: 26px 20px;
+  }
+  ${media.laptopBefore} {
+    padding: 0;
+  }
 `;

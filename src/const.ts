@@ -34,6 +34,7 @@ import sass from "./static/stack/sass.png";
 import router from "./static/stack/router.jpg";
 import materialui from "./static/stack/materialui.png";
 import bootstrap from "./static/stack/bootstrap.png";
+import ts from "./static/stack/ts.png";
 
 export interface ISocialMedia {
   href: string;
@@ -140,6 +141,11 @@ export const stackData = [
     name: "Redux,Redux-Toolkit",
     link: "https://redux-toolkit.js.org/",
   },
+  {
+    src: ts,
+    name: "TypeScript",
+    link: "https://redux-toolkit.js.org/",
+  },
 
   {
     src: html,
@@ -205,4 +211,12 @@ export const stackData = [
     name: "Material ui",
     link: "https://mui.com/",
   },
+];
+export const resumeData = [
+  { skill: "HTML/CSS", percent: "70" },
+  { skill: "JavaScript", percent: "70" },
+  { skill: "React", percent: "80" },
+  { skill: "GitHub", percent: "65" },
+  { skill: "TypeScript", percent: "80" },
+  { skill: "Illustrator/Photoshop", percent: "40" },
 ];
