@@ -7,7 +7,6 @@ import { LeftMenu } from "../components/LeftMenu";
 
 export const LayoutContainer: FC = ({ children }) => {
   const [menu, setMenu] = useState(false);
-  console.log(menu);
 
   const setMenuHandler = useCallback(() => setMenu(!menu), [menu]);
   return (
