@@ -1,27 +1,52 @@
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Menu, ScrollSection } from "../styled/common";
 import { media } from "../styled/media";
 import { Caret } from "./Caret";
 import { LeftMenu } from "../components/LeftMenu";
+import { Avatar } from "../components/Avatar";
 
 export const LayoutContainer: FC = () => {
   const [menu, setMenu] = useState(false);
+  const setMenuHandler = useCallback(() => {
+    setMenu(!menu);
+  }, [menu]);
 
-  const setMenuHandler = useCallback(() => setMenu(!menu), [menu]);
+  const outClickRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const outsideClick = (event: any) => {
+      event?.stopPropagation();
+      if (
+        !outClickRef.current?.contains(event.path?.[0] || event.target) &&
+        !buttonRef.current?.contains(event.path?.[0] || event.target)
+      ) {
+        setMenu(false);
+        console.log(!buttonRef.current?.contains(event.target || event.target));
+      }
+    };
+    document.addEventListener("click", outsideClick);
+    return () => document.removeEventListener("click", outsideClick);
+  }, []);
+
   return (
-    <Container>
-      <ScrollSection>
-        <MobileGamburger>
+    <Layout>
+      <LeftMenu />
+      <Avatar />
+      <Container>
+        <MobileGamburger ref={buttonRef}>
           <Caret toggle={menu} setToggle={setMenuHandler} />
         </MobileGamburger>
-        <MobileMenu menu={menu}>
-          <LeftMenu />
-        </MobileMenu>
-        <Outlet />
-      </ScrollSection>
-    </Container>
+        <ScrollSection>
+          <MobileMenu ref={outClickRef} menu={menu}>
+            <LeftMenu />
+          </MobileMenu>
+          <Outlet />
+        </ScrollSection>
+      </Container>
+    </Layout>
   );
 };
 const MobileMenu = styled.div<{ menu?: boolean }>`
@@ -38,14 +63,13 @@ const MobileMenu = styled.div<{ menu?: boolean }>`
     :before {
       content: "";
       top: 0;
-      right: -30px;
+      right: -20px;
       height: 100%;
       position: absolute;
       display: block;
       width: 20px;
       margin-right: 10px;
       margin-top: 10px;
-      z-index: 100;
       background-image: linear-gradient(
         to right,
         ${({ theme }) => theme.color.darkGrey} 45%,
@@ -67,5 +91,18 @@ const MobileGamburger = styled.div`
   display: block;
   ${media.laptop} {
     display: none;
+  }
+`;
+const Layout = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding: 6px 0;
+  ${media.extraDesktopBefore} {
+    padding: 26px 20px;
+  }
+  ${media.laptopBefore} {
+    padding: 0;
   }
 `;

@@ -8,8 +8,8 @@ interface ICaretProp {
 
 export const Caret: FC<ICaretProp> = ({ toggle, setToggle }) => {
   return (
-    <Container>
-      <Wrapper onClick={setToggle}>
+    <Container onClick={setToggle}>
+      <Wrapper>
         <Line1 toggle={toggle} />
         <Line toggle={toggle} />
         <Line2 toggle={toggle} />
@@ -23,12 +23,12 @@ const Line = styled.div<{ toggle?: boolean }>`
   transition: all 0.1s ease-in-out;
   height: 3px;
   width: 100%;
-  background-color: black;
+  background-color: white;
 `;
 const Line1 = styled.div<{ toggle?: boolean }>`
   height: 3px;
   width: 100%;
-  background-color: black;
+  background-color: white;
   transform: ${({ toggle }) =>
     toggle && `rotate(-45deg) translate(-12px, 11px)`};
 
@@ -37,7 +37,7 @@ const Line1 = styled.div<{ toggle?: boolean }>`
 const Line2 = styled.div<{ toggle?: boolean }>`
   height: 3px;
   width: 100%;
-  background-color: black;
+  background-color: white;
   transform: ${({ toggle }) =>
     toggle && `rotate(45deg) translate(-11px, -10px)`};
   transition: all 0.3s ease-in-out;
@@ -48,7 +48,6 @@ const Container = styled.div`
   padding: 5px;
   align-items: center;
   justify-content: center;
-  background-color: #00c483;
   border-radius: 5px;
 `;
 

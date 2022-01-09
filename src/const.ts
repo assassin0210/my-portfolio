@@ -203,7 +203,7 @@ export const stackData = [
   },
   {
     src: router,
-    name: "React Router Dom v6",
+    name: "React Router",
     link: "https://reactrouter.com/",
   },
   {

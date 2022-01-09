@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useTranslate } from "../hooks/translate";
 
 export const Checkbox = () => {
@@ -12,7 +12,8 @@ export const Checkbox = () => {
     }
   }, [setT]);
 
-  const checkHandler = () => {
+  const checkHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    e.stopPropagation();
     if (lang === "en") {
       setT(false);
     } else if (lang === "ru") {

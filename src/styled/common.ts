@@ -213,6 +213,7 @@ export const Menu = styled.div`
     margin: 60px 0;
   }
   ${media.laptopBefore} {
+    width: 60px;
     margin: 0;
   }
   ${media.laptop} {
