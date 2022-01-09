@@ -1,6 +1,7 @@
 import { FC, useCallback, useState } from "react";
 import styled from "styled-components";
 import { AboutMeItemSkeleton } from "../skeletons/AboutMeItemSkeleton";
+import { media } from "../styled/media";
 
 export const StackItem: FC<{ name: string; src: string; link: string }> = ({
   src,
@@ -42,4 +43,10 @@ const StackImg = styled.img<{ loaded: boolean }>`
     transform: scale(1.1);
   }
   transition: all 0.2s ease-in-out;
+  ${media.desktopBefore} {
+    width: 90px;
+  }
+  ${media.mobileBefore} {
+    width: 70px;
+  }
 `;

@@ -138,7 +138,7 @@ export const stackData = [
   },
   {
     src: redux,
-    name: "Redux,Redux-Toolkit",
+    name: "Redux",
     link: "https://redux-toolkit.js.org/",
   },
   {
@@ -160,7 +160,7 @@ export const stackData = [
 
   {
     src: hookForm,
-    name: "React Hook Form",
+    name: "Hook Form",
     link: "https://react-hook-form.com/",
   },
   { src: next, name: "NextJs", link: "" },

@@ -1,21 +1,17 @@
-import {
-  Container,
-  TextWithLine,
-  Title,
-  Text,
-  ScrollSection,
-} from "../styled/common";
+import { TextWithLine, Title, Text, ScrollSection } from "../styled/common";
 import { Map } from "./Map";
 import { useTranslate } from "../hooks/translate";
 import { contactsData, socialData } from "../const";
 
 import { SocialMedia } from "../common/SocialMedia";
 import styled from "styled-components";
+import { LayoutContainer } from "../common/Container";
+import { media } from "../styled/media";
 
 export const ContactMe = () => {
   const { t } = useTranslate();
   return (
-    <Container>
+    <LayoutContainer>
       <ScrollSection>
         <Title>{t.contactMe.title}</Title>
         <TextWithLine>{t.contactMe.text}</TextWithLine>
@@ -28,7 +24,7 @@ export const ContactMe = () => {
           ))}
         </Wrapper>
       </ScrollSection>
-    </Container>
+    </LayoutContainer>
   );
 };
 
@@ -37,6 +33,12 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 30px;
+  ${media.desktopBefore} {
+    grid-template-columns: auto auto;
+  }
+  ${media.mobileBefore} {
+    grid-template-columns: auto;
+  }
 `;
 
 const ContactText = styled(Text)`

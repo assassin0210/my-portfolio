@@ -1,5 +1,4 @@
 import {
-  Container,
   GreenText,
   ScrollSection,
   Title,
@@ -11,14 +10,13 @@ import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 import { stackData } from "../const";
 import React from "react";
-import { Button } from "../App";
+import { LayoutContainer } from "../common/Container";
+import { media } from "../styled/media";
 
 export const AboutMe = () => {
   const { t } = useTranslate();
   return (
-    <Container>
-      <Button>112312323</Button>
-
+    <LayoutContainer>
       <ScrollSection>
         <Title>{t.aboutMe.title}</Title>
         <SubtitleWrapper>
@@ -40,7 +38,7 @@ export const AboutMe = () => {
           ))}
         </StackList>
       </ScrollSection>
-    </Container>
+    </LayoutContainer>
   );
 };
 
@@ -52,6 +50,9 @@ const StackList = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 30px;
+  ${media.mobileBefore} {
+    grid-template-columns: auto auto;
+  }
 `;
 
 const GreenTextTick = styled(GreenText)`

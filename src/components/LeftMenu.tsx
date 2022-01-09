@@ -7,15 +7,13 @@ import {
   faGlasses,
 } from "@fortawesome/free-solid-svg-icons";
 import { CustomLink } from "../common/CustomLink";
-import { Caret } from "../common/Caret";
 import { Checkbox } from "../common/Checkbox";
-import { cssGreenHover } from "../styled/common";
-import { media } from "../styled/media";
+import { cssGreenHover, Menu } from "../styled/common";
 
 export const LeftMenu = () => {
   return (
     <Menu>
-      <Caret />
+      <div />
       <Checkbox />
       <List>
         <CustomLink to="/">
@@ -37,32 +35,6 @@ export const LeftMenu = () => {
     </Menu>
   );
 };
-
-const Menu = styled.div`
-  padding-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background: ${({ theme }) => theme.color.darkGrey};
-  width: 80px;
-  position: relative;
-  left: 0;
-  ${media.extraDesktopBefore} {
-    padding-bottom: 60px;
-    margin: 60px 0;
-  }
-  ${media.laptopBefore} {
-    margin: 0;
-  }
-  ${media.laptop} {
-    background: linear-gradient(
-      90deg,
-      rgba(28, 29, 31, 1) 0%,
-      rgba(9, 8, 8, 1) 100%
-    );
-  }
-`;
 
 const List = styled.div`
   display: flex;

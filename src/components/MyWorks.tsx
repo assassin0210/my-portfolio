@@ -1,20 +1,16 @@
-import {
-  Container,
-  ScrollSection,
-  TextWithLine,
-  Title,
-} from "../styled/common";
+import { ScrollSection, TextWithLine, Title } from "../styled/common";
 import { MyWorkItem } from "../common/MyWorkItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 
 import { workData } from "../const";
+import { LayoutContainer } from "../common/Container";
 
 export const MyWorks = () => {
   const { t } = useTranslate();
 
   return (
-    <Container>
+    <LayoutContainer>
       <ScrollSection>
         <Title>{t.myWorks.title}</Title>
         <TextWithLine>{t.myWorks.description}</TextWithLine>
@@ -29,7 +25,7 @@ export const MyWorks = () => {
           ))}
         </Wrapper>
       </ScrollSection>
-    </Container>
+    </LayoutContainer>
   );
 };
 

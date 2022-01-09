@@ -86,7 +86,7 @@ export const Container = styled.div`
   }
   ${media.laptopBefore} {
     margin: 0;
-    width: 430px;
+    width: 600px;
   }
 
   :before {
@@ -197,4 +197,30 @@ export const SubtitleWrapper = styled.div`
   margin: 40px 0;
   display: flex;
   flex-wrap: wrap;
+`;
+export const Menu = styled.div`
+  margin: 30px 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: ${({ theme }) => theme.color.darkGrey};
+  width: 80px;
+  position: relative;
+  left: 0;
+  ${media.extraDesktopBefore} {
+    padding-bottom: 60px;
+    margin: 60px 0;
+  }
+  ${media.laptopBefore} {
+    margin: 0;
+  }
+  ${media.laptop} {
+    display: flex;
+    background: linear-gradient(
+      90deg,
+      rgba(28, 29, 31, 1) 0%,
+      rgba(9, 8, 8, 1) 100%
+    );
+  }
 `;

@@ -1,5 +1,4 @@
 import {
-  Container,
   GreenText,
   GreenTextTick,
   ScrollSection,
@@ -15,12 +14,13 @@ import { SkillItem } from "../common/SkillItem";
 import { resumeData } from "../const";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
+import { LayoutContainer } from "../common/Container";
 
 export const Resume = () => {
   const { t } = useTranslate();
 
   return (
-    <Container>
+    <LayoutContainer>
       <ScrollSection>
         <Title>{t.resume.title}</Title>
         <SubtitleWrapper>
@@ -41,7 +41,7 @@ export const Resume = () => {
           ))}
         </Wrapper>
       </ScrollSection>
-    </Container>
+    </LayoutContainer>
   );
 };
 
