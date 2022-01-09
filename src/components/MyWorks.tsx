@@ -1,4 +1,4 @@
-import { ScrollSection, TextWithLine, Title } from "../styled/common";
+import { TextWithLine, Title } from "../styled/common";
 import { MyWorkItem } from "../common/MyWorkItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
@@ -9,7 +9,7 @@ export const MyWorks = () => {
   const { t } = useTranslate();
 
   return (
-    <ScrollSection>
+    <>
       <Title>{t.myWorks.title}</Title>
       <TextWithLine>{t.myWorks.description}</TextWithLine>
       <Wrapper>
@@ -22,7 +22,7 @@ export const MyWorks = () => {
           />
         ))}
       </Wrapper>
-    </ScrollSection>
+    </>
   );
 };
 

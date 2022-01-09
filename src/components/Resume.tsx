@@ -1,7 +1,6 @@
 import {
   GreenText,
   GreenTextTick,
-  ScrollSection,
   Subtitle,
   SubtitleWrapper,
   TextWithLine,
@@ -19,7 +18,7 @@ export const Resume = () => {
   const { t } = useTranslate();
 
   return (
-    <ScrollSection>
+    <>
       <Title>{t.resume.title}</Title>
       <SubtitleWrapper>
         <GreenTextTick>{t.resume.text.one}</GreenTextTick>
@@ -38,7 +37,7 @@ export const Resume = () => {
           <SkillItem key={skill} skill={skill} percent={percent} />
         ))}
       </Wrapper>
-    </ScrollSection>
+    </>
   );
 };
 
@@ -62,4 +61,5 @@ const Wrapper = styled.div`
   display: flex;
   gap: 15px;
   flex-direction: column;
+  margin-bottom: 20px;
 `;

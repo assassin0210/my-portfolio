@@ -135,14 +135,15 @@ export const ScrollSection = styled.section`
 export const Title = styled.h1`
   font-size: calc(28px + 32 * (100vw / 1700));
   font-weight: bold;
+  line-height: 50px;
   margin-bottom: 15px;
+
   color: ${({ theme }) => theme.color.white};
 `;
 
 export const GreenText = styled.span`
   font-size: calc(14px + 4 * (100vw / 1700));
   font-style: italic;
-  margin: 10px 0;
   color: ${({ theme }) => theme.color.green};
 `;
 
@@ -178,6 +179,9 @@ export const cssGreenHover = css`
 export const Icon = styled(FontAwesomeIcon)<{ $size?: string }>`
   font-size: ${({ $size }) =>
     $size ? $size : "calc(18px + 12 * (100vw / 1700))"};
+  ${media.desktopBefore} {
+    font-size: 45px;
+  }
 `;
 
 export const FlexCenter = styled.div`
@@ -194,9 +198,12 @@ export const GreenTextTick = styled(GreenText)`
   }
 `;
 export const SubtitleWrapper = styled.div`
-  margin: 40px 0;
+  margin: 30px 0;
   display: flex;
   flex-wrap: wrap;
+  ${media.laptopBefore} {
+    margin: 10px 0;
+  }
 `;
 export const Menu = styled.div`
   margin: 30px 0;

@@ -1,4 +1,10 @@
-import { GreenText, Title, Subtitle, TextWithLine } from "../styled/common";
+import {
+  GreenText,
+  Title,
+  Subtitle,
+  TextWithLine,
+  SubtitleWrapper,
+} from "../styled/common";
 import { StackItem } from "./StackItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
@@ -32,10 +38,6 @@ export const AboutMe = () => {
     </>
   );
 };
-
-const SubtitleWrapper = styled.div`
-  margin: 40px 0;
-`;
 
 const StackList = styled.div`
   display: grid;

@@ -19,7 +19,6 @@ export const SocialMedia: FC<ISocialMedia> = ({
 const Wrapper = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   ${cssGreenHover};
 `;
 

@@ -1,4 +1,4 @@
-import { TextWithLine, Title, Text, ScrollSection } from "../styled/common";
+import { TextWithLine, Title, Text } from "../styled/common";
 import { Map } from "../common/Map";
 import { useTranslate } from "../hooks/translate";
 import { contactsData, socialData } from "../const";
@@ -10,7 +10,7 @@ import { media } from "../styled/media";
 export const ContactMe = () => {
   const { t } = useTranslate();
   return (
-    <ScrollSection>
+    <>
       <Title>{t.contactMe.title}</Title>
       <TextWithLine>{t.contactMe.text}</TextWithLine>
       <Map />
@@ -21,18 +21,16 @@ export const ContactMe = () => {
           </SocialMedia>
         ))}
       </Wrapper>
-    </ScrollSection>
+    </>
   );
 };
 
 const Wrapper = styled.div`
-  margin: 40px 0;
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-gap: 30px;
-  ${media.desktopBefore} {
-    grid-template-columns: auto auto;
-  }
+
   ${media.mobileBefore} {
     grid-template-columns: auto;
   }
