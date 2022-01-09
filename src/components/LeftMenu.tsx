@@ -19,13 +19,13 @@ export const LeftMenu = () => {
         <CustomLink to="/">
           <MenuIcon icon={faUser} />
         </CustomLink>
-        <CustomLink to="/contacts">
+        <CustomLink to="contacts">
           <MenuIcon icon={faComment} />
         </CustomLink>
-        <CustomLink to="/my-works">
+        <CustomLink to="my-works">
           <MenuIcon icon={faGlasses} />
         </CustomLink>
-        <CustomLink to="/resume">
+        <CustomLink to="resume">
           <MenuIcon icon={faBriefcase} />
         </CustomLink>
       </List>

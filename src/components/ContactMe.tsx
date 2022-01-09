@@ -1,30 +1,27 @@
 import { TextWithLine, Title, Text, ScrollSection } from "../styled/common";
-import { Map } from "./Map";
+import { Map } from "../common/Map";
 import { useTranslate } from "../hooks/translate";
 import { contactsData, socialData } from "../const";
 
 import { SocialMedia } from "../common/SocialMedia";
 import styled from "styled-components";
-import { LayoutContainer } from "../common/Container";
 import { media } from "../styled/media";
 
 export const ContactMe = () => {
   const { t } = useTranslate();
   return (
-    <LayoutContainer>
-      <ScrollSection>
-        <Title>{t.contactMe.title}</Title>
-        <TextWithLine>{t.contactMe.text}</TextWithLine>
-        <Map />
-        <Wrapper>
-          {contactsData.concat(socialData).map(({ icon, href, text }) => (
-            <SocialMedia key={href} icon={icon} href={href}>
-              <ContactText> {text}</ContactText>
-            </SocialMedia>
-          ))}
-        </Wrapper>
-      </ScrollSection>
-    </LayoutContainer>
+    <ScrollSection>
+      <Title>{t.contactMe.title}</Title>
+      <TextWithLine>{t.contactMe.text}</TextWithLine>
+      <Map />
+      <Wrapper>
+        {contactsData.concat(socialData).map(({ icon, href, text }) => (
+          <SocialMedia key={href} icon={icon} href={href}>
+            <ContactText> {text}</ContactText>
+          </SocialMedia>
+        ))}
+      </Wrapper>
+    </ScrollSection>
   );
 };
 

@@ -14,34 +14,31 @@ import { SkillItem } from "../common/SkillItem";
 import { resumeData } from "../const";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
-import { LayoutContainer } from "../common/Container";
 
 export const Resume = () => {
   const { t } = useTranslate();
 
   return (
-    <LayoutContainer>
-      <ScrollSection>
-        <Title>{t.resume.title}</Title>
-        <SubtitleWrapper>
-          <GreenTextTick>{t.resume.text.one}</GreenTextTick>
-          <GreenTextTick>{t.resume.text.two}</GreenTextTick>
-          <GreenText>{t.resume.text.three}</GreenText>
-        </SubtitleWrapper>
-        <TextWithLine>{t.resume.subtitle}</TextWithLine>
+    <ScrollSection>
+      <Title>{t.resume.title}</Title>
+      <SubtitleWrapper>
+        <GreenTextTick>{t.resume.text.one}</GreenTextTick>
+        <GreenTextTick>{t.resume.text.two}</GreenTextTick>
+        <GreenText>{t.resume.text.three}</GreenText>
+      </SubtitleWrapper>
+      <TextWithLine>{t.resume.subtitle}</TextWithLine>
 
-        <SkillWrapper>
-          <Icon icon={faTachometerAlt} />
-          <SkillsSubtitle>Skills</SkillsSubtitle>
-        </SkillWrapper>
+      <SkillWrapper>
+        <Icon icon={faTachometerAlt} />
+        <SkillsSubtitle>Skills</SkillsSubtitle>
+      </SkillWrapper>
 
-        <Wrapper>
-          {resumeData.map(({ skill, percent }) => (
-            <SkillItem key={skill} skill={skill} percent={percent} />
-          ))}
-        </Wrapper>
-      </ScrollSection>
-    </LayoutContainer>
+      <Wrapper>
+        {resumeData.map(({ skill, percent }) => (
+          <SkillItem key={skill} skill={skill} percent={percent} />
+        ))}
+      </Wrapper>
+    </ScrollSection>
   );
 };
 

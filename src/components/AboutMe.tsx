@@ -1,44 +1,35 @@
-import {
-  GreenText,
-  ScrollSection,
-  Title,
-  Subtitle,
-  TextWithLine,
-} from "../styled/common";
+import { GreenText, Title, Subtitle, TextWithLine } from "../styled/common";
 import { StackItem } from "./StackItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 import { stackData } from "../const";
 import React from "react";
-import { LayoutContainer } from "../common/Container";
 import { media } from "../styled/media";
 
 export const AboutMe = () => {
   const { t } = useTranslate();
   return (
-    <LayoutContainer>
-      <ScrollSection>
-        <Title>{t.aboutMe.title}</Title>
-        <SubtitleWrapper>
-          <GreenTextTick>{t.aboutMe.year}</GreenTextTick>
-          <GreenTextTick>{t.aboutMe.city}</GreenTextTick>
-          <GreenText>{t.aboutMe.company}</GreenText>
-        </SubtitleWrapper>
-        <TextWithLine>{t.aboutMe.text}</TextWithLine>
-        <Subtitle>{t.aboutMe.stack}</Subtitle>
+    <>
+      <Title>{t.aboutMe.title}</Title>
+      <SubtitleWrapper>
+        <GreenTextTick>{t.aboutMe.year}</GreenTextTick>
+        <GreenTextTick>{t.aboutMe.city}</GreenTextTick>
+        <GreenText>{t.aboutMe.company}</GreenText>
+      </SubtitleWrapper>
+      <TextWithLine>{t.aboutMe.text}</TextWithLine>
+      <Subtitle>{t.aboutMe.stack}</Subtitle>
 
-        <StackList>
-          {stackData.map((stack) => (
-            <StackItem
-              link={stack.link}
-              name={stack.name}
-              src={stack.src}
-              key={stack.name}
-            />
-          ))}
-        </StackList>
-      </ScrollSection>
-    </LayoutContainer>
+      <StackList>
+        {stackData.map((stack) => (
+          <StackItem
+            link={stack.link}
+            name={stack.name}
+            src={stack.src}
+            key={stack.name}
+          />
+        ))}
+      </StackList>
+    </>
   );
 };
 

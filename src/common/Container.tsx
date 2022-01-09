@@ -1,27 +1,29 @@
-import { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Menu } from "../styled/common";
+import { Container, Menu, ScrollSection } from "../styled/common";
 import { media } from "../styled/media";
 import { Caret } from "./Caret";
 import { LeftMenu } from "../components/LeftMenu";
 
-export const LayoutContainer: FC = ({ children }) => {
+export const LayoutContainer: FC = () => {
   const [menu, setMenu] = useState(false);
 
   const setMenuHandler = useCallback(() => setMenu(!menu), [menu]);
   return (
     <Container>
-      <Test>
-        <Caret toggle={menu} setToggle={setMenuHandler} />
-      </Test>
-      <MobileMenu menu={menu}>
-        <LeftMenu />
-      </MobileMenu>
-      {children}
+      <ScrollSection>
+        <MobileGamburger>
+          <Caret toggle={menu} setToggle={setMenuHandler} />
+        </MobileGamburger>
+        <MobileMenu menu={menu}>
+          <LeftMenu />
+        </MobileMenu>
+        <Outlet />
+      </ScrollSection>
     </Container>
   );
 };
-
 const MobileMenu = styled.div<{ menu?: boolean }>`
   position: absolute;
   transition: all 0.3s ease-in-out;
@@ -56,8 +58,7 @@ const MobileMenu = styled.div<{ menu?: boolean }>`
     display: none;
   }
 `;
-
-const Test = styled.div`
+const MobileGamburger = styled.div`
   position: absolute;
   z-index: 999;
   top: 0;
