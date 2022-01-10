@@ -26,9 +26,11 @@ export const ImageWrapper = styled.div`
   z-index: 20;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4), 0 4px 20px 0 rgba(0, 0, 0, 0.7);
   border-radius: 3px;
+
   ${media.extraDesktopBefore} {
     width: 340px;
   }
+
   ${media.laptopBefore} {
     display: none;
   }
@@ -84,6 +86,7 @@ export const Container = styled.div`
     width: 700px;
     margin: 60px 0;
   }
+
   ${media.laptopBefore} {
     margin: 0;
     width: 600px;
@@ -106,6 +109,7 @@ export const Container = styled.div`
       transparent 100%
     );
   }
+
   :after {
     content: "";
     bottom: 0;
@@ -127,6 +131,7 @@ export const Container = styled.div`
 export const ScrollSection = styled.section`
   padding: 30px 10px 10px 30px;
   ${scrollStylesCSS};
+
   ${media.laptopBefore} {
     padding: 30px 6px;
   }
@@ -166,19 +171,23 @@ export const TextWithLine = styled.p`
 
 export const cssGreenHover = css`
   cursor: pointer;
+
   &:active,
   :hover {
     color: ${({ theme }) => theme.color.green};
+
     path {
       fill: ${({ theme }) => theme.color.green};
       transition: all 0.3s ease-in-out;
     }
   }
+
   transition: all 0.3s ease-in-out;
 `;
 export const Icon = styled(FontAwesomeIcon)<{ $size?: string }>`
   font-size: ${({ $size }) =>
     $size ? $size : "calc(18px + 12 * (100vw / 1700))"};
+
   ${media.desktopBefore} {
     font-size: 45px;
   }
@@ -201,6 +210,7 @@ export const SubtitleWrapper = styled.div`
   margin: 30px 0;
   display: flex;
   flex-wrap: wrap;
+
   ${media.laptopBefore} {
     margin: 10px 0;
   }
@@ -215,14 +225,17 @@ export const Menu = styled.div`
   width: 80px;
   position: relative;
   left: 0;
+
   ${media.extraDesktopBefore} {
     padding-bottom: 60px;
     margin: 60px 0;
   }
+
   ${media.laptopBefore} {
     width: 60px;
     margin: 0;
   }
+
   ${media.laptop} {
     display: flex;
     background: linear-gradient(

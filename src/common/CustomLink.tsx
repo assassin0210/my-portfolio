@@ -15,6 +15,7 @@ const LinkStyle = styled(Link)<{ $active: boolean }>`
     font-size: ${({ $active }) =>
       $active && "calc(24px + 16 * (100vw / 1700))"};
   }
+
   path {
     fill: ${({ $active }) => $active && "#00c483"};
   }

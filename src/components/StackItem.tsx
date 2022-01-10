@@ -39,13 +39,17 @@ const StackImg = styled.img<{ loaded: boolean }>`
   margin: 10px;
   width: 110px;
   object-fit: cover;
+
   &:hover {
     transform: scale(1.1);
   }
+
   transition: all 0.2s ease-in-out;
+
   ${media.desktopBefore} {
     width: 90px;
   }
+
   ${media.mobileBefore} {
     width: 70px;
   }

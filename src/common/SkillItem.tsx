@@ -47,6 +47,7 @@ const Lite = styled.div<{ $percent: string }>`
   background-color: ${({ theme }) => theme.color.lightGrey};
   position: relative;
   margin-top: 5px;
+
   &:after {
     content: "";
     border-radius: 6px;

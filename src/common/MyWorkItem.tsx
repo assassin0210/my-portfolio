@@ -61,15 +61,19 @@ const Wrapper = styled.div<{ src: string }>`
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   margin-bottom: 10px;
+
   ${media.desktopBefore} {
     width: 160px;
     height: 200px;
   }
+
   :hover {
     transform: scale(1.06);
+
     ${HoverSection} {
       opacity: 1;
     }
+
     ${Links} {
       opacity: 0.6;
     }

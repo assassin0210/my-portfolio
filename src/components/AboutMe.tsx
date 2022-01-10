@@ -43,6 +43,7 @@ const StackList = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 30px;
+
   ${media.mobileBefore} {
     grid-template-columns: auto auto;
   }

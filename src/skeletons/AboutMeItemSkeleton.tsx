@@ -16,6 +16,7 @@ const Icon = styled(Skeleton)`
   padding: 5px;
   border-radius: 12px;
   margin: 10px;
+
   ${media.laptopBefore} {
     width: 70px;
     height: 70px;
@@ -25,6 +26,7 @@ const Icon = styled(Skeleton)`
 const Text = styled(Skeleton)`
   width: 110px;
   height: 25px;
+
   ${media.laptopBefore} {
     width: 70px;
   }
