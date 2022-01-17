@@ -11,7 +11,7 @@ import { store } from "./store/store";
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={styledTheme}>
-      <BrowserRouter>
+      <BrowserRouter basename={"/portfolio"}>
         <GlobalStyle />
         <Provider store={store}>
           <App />

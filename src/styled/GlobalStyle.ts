@@ -8,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     //font-family: 'Lato', sans-serif;
     font-family: 'Inter', sans-serif;
     line-height: 25px;
-    font-size: calc(14px + 2 *(100vw / 1700));
-   
+    font-size: calc(14px + 2 * (100vw / 1700));
+
 
   }
 

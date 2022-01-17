@@ -59,6 +59,7 @@ const MobileMenu = styled.div<{ menu?: boolean }>`
   ${Menu} {
     display: flex;
     height: 100%;
+
     :before {
       content: "";
       top: 0;
@@ -77,6 +78,7 @@ const MobileMenu = styled.div<{ menu?: boolean }>`
       );
     }
   }
+
   ${media.laptop} {
     display: none;
   }
@@ -88,6 +90,7 @@ const MobileGamburger = styled.div`
   right: 0;
   padding: 10px 20px;
   display: block;
+
   ${media.laptop} {
     display: none;
   }
@@ -98,9 +101,11 @@ const Layout = styled.div`
   justify-content: center;
   height: 100vh;
   padding: 6px 0;
+
   ${media.extraDesktopBefore} {
     padding: 26px 20px;
   }
+
   ${media.laptopBefore} {
     padding: 0;
   }
