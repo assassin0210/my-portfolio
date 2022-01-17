@@ -12,17 +12,11 @@ import { useTranslate } from "../hooks/translate";
 import { SkillItem } from "../common/SkillItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootStateType } from "../store/rootReducer";
-import { useEffect } from "react";
-import { getSkillsRequest } from "../store/requests/getSkillsRequest";
 
 export const Resume = () => {
   const { t } = useTranslate();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getSkillsRequest());
-  }, [dispatch]);
   const { skills } = useSelector((state: RootStateType) => state.skillsData);
 
   return (

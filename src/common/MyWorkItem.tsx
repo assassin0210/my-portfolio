@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { HoverSection, Links, Wrapper } from "../styled/common";
+import { HoverSection, Links, transitionCSS, Wrapper } from "../styled/common";
 import { SocialMedia } from "./SocialMedia";
 import { useCallback, useState } from "react";
-import { AboutMeItemSkeleton } from "../skeletons/MyWorkItemSkeleton";
+import { media } from "../styled/media";
 
 interface IProp {
   link: string;
@@ -14,21 +14,19 @@ interface IProp {
 
 export const MyWorkItem = ({ src, git, link }: IProp) => {
   const [status, setStatus] = useState(false);
-  console.log(status);
 
   const loaded = useCallback(() => {
     setStatus(true);
   }, []);
   return (
     <ItemWrapper>
-      <Wrapper onLoad={loaded} src={src}>
-        <Image src={src} alt="" />
+      <Wrapper onLoad={loaded} loaded={status}>
+        <Image loaded={status} src={src} alt="" />
         <HoverSection>
           <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
           <SocialMedia $size={"60px"} icon={faLink} href={link} />
         </HoverSection>
         <Links />
-        {!status && <AboutMeItemSkeleton />}
       </Wrapper>
     </ItemWrapper>
   );
@@ -38,9 +36,13 @@ const ItemWrapper = styled.div`
   gap: 10px;
 `;
 
-const Image = styled.img`
-  width: 260px;
-  //object-fit: cover;
+const Image = styled.img<{ loaded: boolean }>`
+  opacity: ${({ loaded }) => (loaded ? 1 : 0)};
   position: absolute;
+  width: 260px;
   z-index: 1;
+  ${transitionCSS};
+  ${media.desktopBefore} {
+    width: 180px;
+  }
 `;

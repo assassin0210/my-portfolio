@@ -28,10 +28,12 @@ const Icon = styled(Skeleton)`
   padding: 5px;
   border-radius: 12px;
   margin: 10px;
+
   ${media.desktopBefore} {
     width: 90px;
     height: 90px;
   }
+
   ${media.mobileBefore} {
     width: 70px;
     height: 70px;

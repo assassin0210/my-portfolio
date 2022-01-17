@@ -1,25 +1,14 @@
 import styled from "styled-components";
-import React, { useEffect } from "react";
-import { useTranslate } from "../hooks/translate";
+import React from "react";
+import { transitionCSS } from "../styled/common";
 
-export const Checkbox = () => {
-  const { lang, setT } = useTranslate();
-  useEffect(() => {
-    if (localStorage.getItem("lang") === "ru") {
-      setT(false);
-    } else if (localStorage.getItem("lang") === "en") {
-      setT(true);
-    }
-  }, [setT]);
-
-  const checkHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    if (lang === "en") {
-      setT(false);
-    } else if (lang === "ru") {
-      setT(true);
-    }
-  };
+export const Checkbox = ({
+  lang,
+  checkHandler,
+}: {
+  lang: string;
+  checkHandler: (e: React.FormEvent<HTMLInputElement>) => void;
+}) => {
   return (
     <Wrapper>
       <input
@@ -40,7 +29,7 @@ export const Checkbox = () => {
 
 const LangItem = styled.span<{ toggle?: boolean }>`
   color: ${({ toggle, theme }) => toggle && theme.color.green};
-  transition: all 0.2s ease-in-out;
+  ${transitionCSS};
 `;
 
 const Lang = styled.div`
@@ -61,7 +50,7 @@ const Wrapper = styled.div`
     height: 20px;
     background-color: ${({ theme }) => theme.color.lightGrey};
     border-radius: 20px;
-    transition: all 0.3s;
+    ${transitionCSS};
   }
 
   .switch::after {
@@ -73,7 +62,7 @@ const Wrapper = styled.div`
     background-color: white;
     top: 1px;
     left: 1px;
-    transition: all 0.3s;
+    ${transitionCSS};
   }
 
   .checkbox:checked + .switch::after {

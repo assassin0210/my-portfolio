@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getSkillsRequest } from "../requests/getSkillsRequest";
+import { IStatus } from "./stackSlice";
 
 export interface ISkill {
   skill: string;
   percent: string;
 }
-export type IStatus = "init" | "loading" | "loaded" | "error";
 
 interface IInitialState {
   skills: ISkill[];

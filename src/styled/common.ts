@@ -2,6 +2,10 @@ import styled, { css, keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { media } from "./media";
 
+export const transitionCSS = css`
+  transition: all 0.3s ease-in-out;
+`;
+
 const SkeletonAnim = keyframes`
   0% {
     background-position: 100% 50%;
@@ -17,6 +21,12 @@ export const Skeleton = styled.div`
   animation: ${SkeletonAnim} 1s infinite;
   height: 100%;
   width: 100%;
+`;
+
+export const SkeletonCSS = css`
+  background: linear-gradient(90deg, #c4ccd3 35%, #f2f5f7 60%, #c4ccd3 80%);
+  background-size: 400% 100%;
+  animation: ${SkeletonAnim} 1s infinite;
 `;
 
 export const ImageWrapper = styled.div`
@@ -178,18 +188,18 @@ export const cssGreenHover = css`
 
     path {
       fill: ${({ theme }) => theme.color.green};
-      transition: all 0.3s ease-in-out;
+      ${transitionCSS};
     }
   }
 
-  transition: all 0.3s ease-in-out;
+  ${transitionCSS};
 `;
 export const Icon = styled(FontAwesomeIcon)<{ $size?: string }>`
   font-size: ${({ $size }) =>
     $size ? $size : "calc(18px + 12 * (100vw / 1700))"};
 
   ${media.desktopBefore} {
-    font-size: calc(22px + 10 * (100vw / 1700));
+    font-size: calc(30px + 10 * (100vw / 1700));
   }
 `;
 
@@ -251,7 +261,7 @@ export const HoverSection = styled(FlexCenter)`
   gap: 25px;
   opacity: 0;
   z-index: 4;
-  transition: all 0.3s ease-in-out;
+  ${transitionCSS};
   object-fit: contain;
 `;
 export const Links = styled.div`
@@ -263,31 +273,35 @@ export const Links = styled.div`
   z-index: 3;
   opacity: 0;
   background-color: rgb(45%, 46%, 47%, 0.6);
-  transition: all 0.6s ease-in-out;
+  ${transitionCSS};
 `;
 
-export const Wrapper = styled.div<{ src?: string }>`
+export const Wrapper = styled.div<{ loaded?: boolean }>`
   cursor: pointer;
   border-radius: 8px;
+  border: none;
   position: relative;
   width: 230px;
   height: 300px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  ${transitionCSS};
   margin-bottom: 10px;
+  ${({ loaded }) => !loaded && SkeletonCSS};
   ${media.desktopBefore} {
     width: 160px;
     height: 200px;
   }
+
   :hover {
     transform: scale(1.06);
+
     ${HoverSection} {
       opacity: 1;
     }
+
     ${Links} {
       opacity: 1;
     }

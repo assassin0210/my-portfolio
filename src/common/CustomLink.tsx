@@ -10,6 +10,7 @@ export const CustomLink: FC<{ to: string }> = ({ to, children }) => {
     </LinkStyle>
   );
 };
+
 const LinkStyle = styled(Link)<{ $active: boolean }>`
   svg {
     font-size: ${({ $active }) =>

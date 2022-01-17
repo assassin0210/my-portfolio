@@ -9,12 +9,34 @@ import {
 import { CustomLink } from "../common/CustomLink";
 import { Checkbox } from "../common/Checkbox";
 import { cssGreenHover, Menu } from "../styled/common";
+import { useTranslate } from "../hooks/translate";
+import React, { useCallback, useEffect } from "react";
 
 export const LeftMenu = () => {
+  const { lang, setT } = useTranslate();
+  useEffect(() => {
+    if (localStorage.getItem("lang") === "ru") {
+      setT(false);
+    } else if (localStorage.getItem("lang") === "en") {
+      setT(true);
+    }
+  }, []);
+
+  const checkHandler = useCallback(
+    (e: React.FormEvent<HTMLInputElement>) => {
+      e.stopPropagation();
+      if (lang === "en") {
+        setT(false);
+      } else if (lang === "ru") {
+        setT(true);
+      }
+    },
+    [lang]
+  );
   return (
     <Menu>
       <div />
-      <Checkbox />
+      <Checkbox checkHandler={checkHandler} lang={lang as string} />
       <List>
         <CustomLink to="/">
           <MenuIcon icon={faUser} />

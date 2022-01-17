@@ -1,7 +1,12 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Menu, ScrollSection } from "../styled/common";
+import {
+  Container,
+  Menu,
+  ScrollSection,
+  transitionCSS,
+} from "../styled/common";
 import { media } from "../styled/media";
 import { Caret } from "./Caret";
 import { LeftMenu } from "../components/LeftMenu";
@@ -50,7 +55,7 @@ export const LayoutContainer: FC = () => {
 };
 const MobileMenu = styled.div<{ menu?: boolean }>`
   position: absolute;
-  transition: all 0.3s ease-in-out;
+  ${transitionCSS};
   z-index: 999;
   top: 0;
   left: ${({ menu }) => (menu ? "0" : "-90px")};

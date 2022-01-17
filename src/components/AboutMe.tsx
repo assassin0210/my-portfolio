@@ -8,23 +8,16 @@ import {
 import { StackItem } from "./StackItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
-import React, { useEffect } from "react";
+import React from "react";
 import { media } from "../styled/media";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootStateType } from "../store/rootReducer";
-import { getStackRequest } from "../store/requests/getStack";
-import { AboutMeItemsSkeleton } from "../skeletons/AboutMeItemSkeleton";
 
 export const AboutMe = () => {
   const { t } = useTranslate();
   const { stack, status } = useSelector(
     (state: RootStateType) => state.stackData
   );
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getStackRequest());
-  }, [dispatch]);
   return (
     <>
       <Title>{t.aboutMe.title}</Title>
@@ -37,7 +30,7 @@ export const AboutMe = () => {
       <Subtitle>{t.aboutMe.stack}</Subtitle>
 
       <StackList>
-        {status === "loaded" ? (
+        {status === "loaded" &&
           stack.map((stack) => (
             <StackItem
               link={stack.link}
@@ -45,10 +38,7 @@ export const AboutMe = () => {
               src={stack.src}
               key={stack.name}
             />
-          ))
-        ) : (
-          <AboutMeItemsSkeleton />
-        )}
+          ))}
       </StackList>
     </>
   );

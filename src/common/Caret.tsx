@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FC } from "react";
+import { transitionCSS } from "../styled/common";
 
 interface ICaretProp {
   toggle?: boolean;
@@ -20,7 +21,7 @@ export const Caret: FC<ICaretProp> = ({ toggle, setToggle }) => {
 
 const Line = styled.div<{ toggle?: boolean }>`
   opacity: ${({ toggle }) => (toggle ? "0" : "1")};
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
   height: 3px;
   width: 100%;
   background-color: white;
@@ -31,8 +32,7 @@ const Line1 = styled.div<{ toggle?: boolean }>`
   background-color: white;
   transform: ${({ toggle }) =>
     toggle && `rotate(-45deg) translate(-12px, 11px)`};
-
-  transition: all 0.3s ease-in-out;
+  ${transitionCSS};
 `;
 const Line2 = styled.div<{ toggle?: boolean }>`
   height: 3px;
@@ -40,7 +40,7 @@ const Line2 = styled.div<{ toggle?: boolean }>`
   background-color: white;
   transform: ${({ toggle }) =>
     toggle && `rotate(45deg) translate(-11px, -10px)`};
-  transition: all 0.3s ease-in-out;
+  ${transitionCSS};
 `;
 const Container = styled.div`
   cursor: pointer;
