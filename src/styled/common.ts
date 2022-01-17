@@ -101,8 +101,8 @@ export const Container = styled.div`
     z-index: 100;
     background-image: linear-gradient(
       to bottom,
-      ${({ theme }) => theme.color.darkGrey} 45%,
-      ${({ theme }) => theme.color.darkGrey} 23%,
+      ${({ theme }) => theme.color.darkGrey},
+      ${({ theme }) => theme.color.darkGrey} 50%,
       transparent 100%
     );
   }
@@ -117,8 +117,8 @@ export const Container = styled.div`
     z-index: 100;
     background-image: linear-gradient(
       to top,
-      ${({ theme }) => theme.color.darkGrey} 45%,
-      ${({ theme }) => theme.color.darkGrey} 23%,
+      ${({ theme }) => theme.color.darkGrey},
+      ${({ theme }) => theme.color.darkGrey} 50%,
       transparent 100%
     );
   }
@@ -180,7 +180,7 @@ export const Icon = styled(FontAwesomeIcon)<{ $size?: string }>`
   font-size: ${({ $size }) =>
     $size ? $size : "calc(18px + 12 * (100vw / 1700))"};
   ${media.desktopBefore} {
-    font-size: 45px;
+    font-size: calc(22px + 10 * (100vw / 1700));
   }
 `;
 
@@ -230,5 +230,53 @@ export const Menu = styled.div`
       rgba(28, 29, 31, 1) 0%,
       rgba(9, 8, 8, 1) 100%
     );
+  }
+`;
+
+export const HoverSection = styled(FlexCenter)`
+  display: flex;
+  gap: 25px;
+  opacity: 0;
+  z-index: 4;
+  transition: all 0.3s ease-in-out;
+  object-fit: contain;
+`;
+export const Links = styled.div`
+  position: absolute;
+  border-radius: 8px;
+  width: 100%;
+  pointer-events: none;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  background-color: rgb(45%, 46%, 47%, 0.6);
+  transition: all 0.6s ease-in-out;
+`;
+
+export const Wrapper = styled.div<{ src?: string }>`
+  cursor: pointer;
+  border-radius: 8px;
+  position: relative;
+  width: 230px;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
+  ${media.desktopBefore} {
+    width: 160px;
+    height: 200px;
+  }
+  :hover {
+    transform: scale(1.06);
+    ${HoverSection} {
+      opacity: 1;
+    }
+    ${Links} {
+      opacity: 1;
+    }
   }
 `;

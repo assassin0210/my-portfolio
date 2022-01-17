@@ -1,28 +1,26 @@
-import { FC, useCallback, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import styled from "styled-components";
 import { AboutMeItemSkeleton } from "../skeletons/AboutMeItemSkeleton";
 import { media } from "../styled/media";
 
-export const StackItem: FC<{ name: string; src: string; link: string }> = ({
-  src,
-  name,
-  link,
-}) => {
-  const [status, setStatus] = useState(false);
+export const StackItem: FC<{ name: string; src: string; link: string }> = memo(
+  ({ src, name, link }) => {
+    const [status, setStatus] = useState(false);
 
-  const loaded = useCallback(() => {
-    setStatus(true);
-  }, []);
-  return (
-    <>
-      <Wrapper onLoad={loaded} target={"_blank"} href={link}>
-        <StackImg loaded={status} src={src} alt={name} />
-        {!status && <AboutMeItemSkeleton />}
-        {status && <p>{name}</p>}
-      </Wrapper>
-    </>
-  );
-};
+    const loaded = useCallback(() => {
+      setStatus(true);
+    }, []);
+    return (
+      <>
+        <Wrapper onLoad={loaded} target={"_blank"} href={link}>
+          <StackImg loaded={status} src={src} alt={name} />
+          {!status && <AboutMeItemSkeleton />}
+          {status && <p>{name}</p>}
+        </Wrapper>
+      </>
+    );
+  }
+);
 
 const Wrapper = styled.a`
   display: flex;

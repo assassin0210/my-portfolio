@@ -24,7 +24,6 @@ export const LayoutContainer: FC = () => {
         !buttonRef.current?.contains(event.path?.[0] || event.target)
       ) {
         setMenu(false);
-        console.log(!buttonRef.current?.contains(event.target || event.target));
       }
     };
     document.addEventListener("click", outsideClick);

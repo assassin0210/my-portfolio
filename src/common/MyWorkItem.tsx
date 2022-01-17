@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { FlexCenter } from "../styled/common";
+import { HoverSection, Links, Wrapper } from "../styled/common";
 import { SocialMedia } from "./SocialMedia";
-import { media } from "../styled/media";
+import { useCallback, useState } from "react";
+import { AboutMeItemSkeleton } from "../skeletons/MyWorkItemSkeleton";
 
 interface IProp {
   link: string;
@@ -12,14 +13,22 @@ interface IProp {
 }
 
 export const MyWorkItem = ({ src, git, link }: IProp) => {
+  const [status, setStatus] = useState(false);
+  console.log(status);
+
+  const loaded = useCallback(() => {
+    setStatus(true);
+  }, []);
   return (
     <ItemWrapper>
-      <Wrapper src={src}>
+      <Wrapper onLoad={loaded} src={src}>
+        <Image src={src} alt="" />
         <HoverSection>
           <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
           <SocialMedia $size={"60px"} icon={faLink} href={link} />
         </HoverSection>
         <Links />
+        {!status && <AboutMeItemSkeleton />}
       </Wrapper>
     </ItemWrapper>
   );
@@ -29,49 +38,9 @@ const ItemWrapper = styled.div`
   gap: 10px;
 `;
 
-const HoverSection = styled(FlexCenter)`
-  display: flex;
-  gap: 25px;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-`;
-const Links = styled.div`
+const Image = styled.img`
+  width: 260px;
+  //object-fit: cover;
   position: absolute;
-  border-radius: 8px;
-  width: 100%;
-  pointer-events: none;
-  height: 100%;
-  z-index: -1;
-  opacity: 0;
-  background-color: rgb(45%, 46%, 47%);
-  transition: all 0.4s ease-in-out;
-`;
-
-const Wrapper = styled.div<{ src: string }>`
-  cursor: pointer;
-  border-radius: 8px;
-  position: relative;
-  width: 230px;
-  height: 300px;
-  background: ${({ src }) => `url(${src})`} no-repeat center;
-  background-size: 115%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  margin-bottom: 10px;
-  ${media.desktopBefore} {
-    width: 160px;
-    height: 200px;
-  }
-  :hover {
-    transform: scale(1.06);
-    ${HoverSection} {
-      opacity: 1;
-    }
-    ${Links} {
-      opacity: 0.6;
-    }
-  }
+  z-index: 1;
 `;

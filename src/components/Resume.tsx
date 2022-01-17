@@ -10,12 +10,20 @@ import {
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 import { SkillItem } from "../common/SkillItem";
-import { resumeData } from "../const";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { RootStateType } from "../store/rootReducer";
+import { useEffect } from "react";
+import { getSkillsRequest } from "../store/requests/getSkillsRequest";
 
 export const Resume = () => {
   const { t } = useTranslate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSkillsRequest());
+  }, [dispatch]);
+  const { skills } = useSelector((state: RootStateType) => state.skillsData);
 
   return (
     <>
@@ -33,7 +41,7 @@ export const Resume = () => {
       </SkillWrapper>
 
       <Wrapper>
-        {resumeData.map(({ skill, percent }) => (
+        {skills.map(({ skill, percent }) => (
           <SkillItem key={skill} skill={skill} percent={percent} />
         ))}
       </Wrapper>

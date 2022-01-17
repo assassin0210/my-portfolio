@@ -4,9 +4,21 @@ import { media } from "../styled/media";
 
 export const AboutMeItemSkeleton = () => {
   return (
-    <>
+    <Wrapper>
       <Icon />
       <Text />
+    </Wrapper>
+  );
+};
+export const AboutMeItemsSkeleton = () => {
+  return (
+    <>
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
+        <Wrapper key={index}>
+          <Icon />
+          <Text />
+        </Wrapper>
+      ))}
     </>
   );
 };
@@ -16,16 +28,29 @@ const Icon = styled(Skeleton)`
   padding: 5px;
   border-radius: 12px;
   margin: 10px;
-  ${media.laptopBefore} {
+  ${media.desktopBefore} {
+    width: 90px;
+    height: 90px;
+  }
+  ${media.mobileBefore} {
     width: 70px;
     height: 70px;
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
 const Text = styled(Skeleton)`
-  width: 110px;
+  width: 100%;
   height: 25px;
+  max-width: 130px;
+
   ${media.laptopBefore} {
-    width: 70px;
+    width: 100%;
   }
 `;

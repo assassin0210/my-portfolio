@@ -51,8 +51,9 @@ const Lite = styled.div<{ $percent: string }>`
     content: "";
     border-radius: 6px;
     height: 100%;
-    width: ${({ $percent }) => ($percent ? $percent : 20)}%;
+    width: ${({ $percent }) => $percent || 0}%;
     position: absolute;
     background-color: ${({ theme }) => theme.color.green};
+    transition: all 0.3s ease-in-out;
   }
 `;

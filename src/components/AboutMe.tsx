@@ -8,12 +8,23 @@ import {
 import { StackItem } from "./StackItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
-import { stackData } from "../const";
-import React from "react";
+import React, { useEffect } from "react";
 import { media } from "../styled/media";
+import { useDispatch, useSelector } from "react-redux";
+import { RootStateType } from "../store/rootReducer";
+import { getStackRequest } from "../store/requests/getStack";
+import { AboutMeItemsSkeleton } from "../skeletons/AboutMeItemSkeleton";
 
 export const AboutMe = () => {
   const { t } = useTranslate();
+  const { stack, status } = useSelector(
+    (state: RootStateType) => state.stackData
+  );
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getStackRequest());
+  }, [dispatch]);
   return (
     <>
       <Title>{t.aboutMe.title}</Title>
@@ -26,20 +37,24 @@ export const AboutMe = () => {
       <Subtitle>{t.aboutMe.stack}</Subtitle>
 
       <StackList>
-        {stackData.map((stack) => (
-          <StackItem
-            link={stack.link}
-            name={stack.name}
-            src={stack.src}
-            key={stack.name}
-          />
-        ))}
+        {status === "loaded" ? (
+          stack.map((stack) => (
+            <StackItem
+              link={stack.link}
+              name={stack.name}
+              src={stack.src}
+              key={stack.name}
+            />
+          ))
+        ) : (
+          <AboutMeItemsSkeleton />
+        )}
       </StackList>
     </>
   );
 };
 
-const StackList = styled.div`
+export const StackList = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 30px;

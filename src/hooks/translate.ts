@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import LocalizedStrings from "react-localization";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStateType } from "../core/rootReducer";
-import { setLang } from "../core/translateSlice";
+import { RootStateType } from "../store/rootReducer";
+import { setLang } from "../store/slices/translateSlice";
 
 const textContent = new LocalizedStrings({
   ru: {
