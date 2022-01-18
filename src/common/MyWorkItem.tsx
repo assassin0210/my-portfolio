@@ -23,8 +23,8 @@ export const MyWorkItem = ({ src, git, link }: IProp) => {
       <Wrapper onLoad={loaded} loaded={status}>
         <Image loaded={status} src={src} alt="" />
         <HoverSection>
-          <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
-          <SocialMedia $size={"60px"} icon={faLink} href={link} />
+          <SocialMedia $size="60px" icon={faGithubSquare} href={git} />
+          <SocialMedia $size="60px" icon={faLink} href={link} />
         </HoverSection>
         <Links />
       </Wrapper>
@@ -42,6 +42,7 @@ const Image = styled.img<{ loaded: boolean }>`
   width: 260px;
   z-index: 1;
   ${transitionCSS};
+
   ${media.desktopBefore} {
     width: 180px;
   }

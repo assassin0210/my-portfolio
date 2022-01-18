@@ -6,6 +6,7 @@ export interface IStack {
   name: string;
   link: string;
 }
+
 export type IStatus = "init" | "loading" | "loaded" | "error";
 
 interface IInitialState {

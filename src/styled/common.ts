@@ -290,6 +290,7 @@ export const Wrapper = styled.div<{ loaded?: boolean }>`
   ${transitionCSS};
   margin-bottom: 10px;
   ${({ loaded }) => !loaded && SkeletonCSS};
+
   ${media.desktopBefore} {
     width: 160px;
     height: 200px;

@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import {
   Container,
@@ -20,6 +20,12 @@ export const LayoutContainer: FC = () => {
 
   const outClickRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
+  const { pathname } = useLocation();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    ref.current?.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const outsideClick = (event: any) => {
@@ -43,7 +49,7 @@ export const LayoutContainer: FC = () => {
         <MobileGamburger ref={buttonRef}>
           <Caret toggle={menu} setToggle={setMenuHandler} />
         </MobileGamburger>
-        <ScrollSection>
+        <ScrollSection ref={ref}>
           <MobileMenu ref={outClickRef} menu={menu}>
             <LeftMenu />
           </MobileMenu>
