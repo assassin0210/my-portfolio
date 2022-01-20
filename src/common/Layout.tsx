@@ -21,6 +21,12 @@ export const LayoutContainer: FC = () => {
 
   const outClickRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
+  const { pathname } = useLocation();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    ref.current?.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -48,7 +54,7 @@ export const LayoutContainer: FC = () => {
         <MobileGamburger ref={buttonRef}>
           <Caret toggle={menu} setToggle={setMenuHandler} />
         </MobileGamburger>
-        <ScrollSection>
+        <ScrollSection ref={ref}>
           <MobileMenu ref={outClickRef} menu={menu}>
             <LeftMenu />
           </MobileMenu>
