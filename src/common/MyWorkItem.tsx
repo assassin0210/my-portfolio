@@ -44,6 +44,7 @@ const Image = styled.img<{ loaded: boolean }>`
   height: 100%;
   object-fit: cover;
   ${transitionCSS};
+
   ${media.desktopBefore} {
     width: 180px;
   }
@@ -59,6 +60,7 @@ const Wrapper = styled.div<{ loaded?: boolean }>`
   overflow: hidden;
   ${transitionCSS};
   ${({ loaded }) => !loaded && SkeletonCSS};
+
   ${media.desktopBefore} {
     width: 160px;
     height: 200px;

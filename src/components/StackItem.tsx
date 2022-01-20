@@ -34,13 +34,14 @@ const ImageWrapper = styled.div<{ loaded: boolean }>`
   overflow: hidden;
   border-radius: 16px;
   margin-bottom: 5px;
-  ${({ loaded }) => !loaded && SkeletonCSS}
 
+  ${({ loaded }) => !loaded && SkeletonCSS}
   &:hover {
     transform: scale(1.1);
   }
 
   ${transitionCSS};
+
   ${media.desktopBefore} {
     width: 90px;
     height: 90px;
@@ -67,6 +68,7 @@ const StackImg = styled.img<{ loaded: boolean }>`
   width: 100px;
   object-fit: cover;
   ${transitionCSS};
+
   ${media.desktopBefore} {
     width: 90px;
   }

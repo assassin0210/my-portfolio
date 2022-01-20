@@ -21,7 +21,6 @@ export const LayoutContainer: FC = () => {
 
   const outClickRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
-  const { pathname } = useLocation();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,9 +87,9 @@ const MobileMenu = styled.div<{ menu?: boolean }>`
       margin-top: 10px;
       background-image: linear-gradient(
         to right,
-        ${({ theme }) => theme.color.darkGrey} 45%,
-        ${({ theme }) => theme.color.darkGrey} 23%,
-        transparent 100%
+        rgba(21, 23, 24, 1),
+        rgba(21, 23, 24, 0.5),
+        rgba(21, 23, 24, 0)
       );
     }
   }
