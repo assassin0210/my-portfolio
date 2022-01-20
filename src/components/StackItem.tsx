@@ -1,5 +1,5 @@
 import { FC, memo, useCallback, useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { media } from "../styled/media";
 import { SkeletonCSS, transitionCSS } from "../styled/common";
 
@@ -17,29 +17,14 @@ export const StackItem: FC<{ name: string; src: string; link: string }> = memo(
           <ImageWrapper loaded={status}>
             <StackImg loaded={status} src={src} alt={name} />
           </ImageWrapper>
-          <Text loaded={status}>{name}</Text>
+          <Text>{name}</Text>
         </Wrapper>
       </>
     );
   }
 );
 
-const Text = styled.p<{ loaded: boolean }>`
-  ${transitionCSS};
-  ${({ loaded }) =>
-    !loaded &&
-    css`
-      ${SkeletonCSS};
-      border-radius: 6px;
-      width: 146px;
-      height: 25px;
-      z-index: 5;
-      color: rgba(0, 0, 0, 0);
-      ${media.desktopBefore} {
-        width: 110px;
-      }
-    `};
-`;
+const Text = styled.p``;
 const ImageWrapper = styled.div<{ loaded: boolean }>`
   display: flex;
   align-items: center;

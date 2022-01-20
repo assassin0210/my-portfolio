@@ -14,14 +14,6 @@ const SkeletonAnim = keyframes`
     background-position: 0 50%;
   }
 `;
-export const Skeleton = styled.div`
-  border-radius: 6px;
-  background: linear-gradient(90deg, #c4ccd3 35%, #f2f5f7 60%, #c4ccd3 80%);
-  background-size: 400% 100%;
-  animation: ${SkeletonAnim} 1s infinite;
-  height: 100%;
-  width: 100%;
-`;
 
 export const SkeletonCSS = css`
   background: linear-gradient(90deg, #c4ccd3 35%, #f2f5f7 60%, #c4ccd3 80%);
@@ -112,28 +104,30 @@ export const Container = styled.div`
     margin-right: 10px;
     margin-top: 10px;
     z-index: 100;
+
     background-image: linear-gradient(
       to bottom,
-      ${({ theme }) => theme.color.darkGrey},
-      ${({ theme }) => theme.color.darkGrey} 50%,
-      transparent 100%
+      rgba(21, 23, 24, 1),
+      rgba(21, 23, 24, 0.5),
+      rgba(21, 23, 24, 0)
     );
   }
 
   :after {
     content: "";
-    bottom: 0;
+    bottom: 9px;
     height: 30px;
     position: absolute;
     display: block;
     width: 100%;
     margin-right: 10px;
     z-index: 100;
-    background-image: linear-gradient(
+    background-color: ${({ theme }) => theme.color.darkGrey};
+    background: linear-gradient(
       to top,
-      ${({ theme }) => theme.color.darkGrey},
-      ${({ theme }) => theme.color.darkGrey} 50%,
-      transparent 100%
+      rgba(21, 23, 24, 1),
+      rgba(21, 23, 24, 0.5),
+      rgba(21, 23, 24, 0)
     );
   }
 `;
@@ -258,7 +252,12 @@ export const Menu = styled.div`
 
 export const HoverSection = styled(FlexCenter)`
   display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
   gap: 25px;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   z-index: 4;
   ${transitionCSS};
@@ -274,36 +273,4 @@ export const Links = styled.div`
   opacity: 0;
   background-color: rgb(45%, 46%, 47%, 0.6);
   ${transitionCSS};
-`;
-
-export const Wrapper = styled.div<{ loaded?: boolean }>`
-  cursor: pointer;
-  border-radius: 8px;
-  border: none;
-  position: relative;
-  width: 230px;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  ${transitionCSS};
-  margin-bottom: 10px;
-  ${({ loaded }) => !loaded && SkeletonCSS};
-  ${media.desktopBefore} {
-    width: 160px;
-    height: 200px;
-  }
-
-  :hover {
-    transform: scale(1.06);
-
-    ${HoverSection} {
-      opacity: 1;
-    }
-
-    ${Links} {
-      opacity: 1;
-    }
-  }
 `;

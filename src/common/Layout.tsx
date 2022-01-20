@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import {
   Container,
@@ -13,6 +13,7 @@ import { LeftMenu } from "../components/LeftMenu";
 import { Avatar } from "../components/Avatar";
 
 export const LayoutContainer: FC = () => {
+  const { pathname } = useLocation();
   const [menu, setMenu] = useState(false);
   const setMenuHandler = useCallback(() => {
     setMenu(!menu);
@@ -20,6 +21,10 @@ export const LayoutContainer: FC = () => {
 
   const outClickRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
 
   useEffect(() => {
     const outsideClick = (event: any) => {

@@ -1,10 +1,11 @@
-import { TextWithLine, Title } from "../styled/common";
+import { TextWithLine, Title, transitionCSS } from "../styled/common";
 import { MyWorkItem } from "../common/MyWorkItem";
 import styled from "styled-components";
 import { useTranslate } from "../hooks/translate";
 
 import { useSelector } from "react-redux";
 import { RootStateType } from "../store/rootReducer";
+import { media } from "../styled/media";
 
 export const MyWorks = () => {
   const { t } = useTranslate();
@@ -33,8 +34,17 @@ export const MyWorks = () => {
 };
 
 const Wrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 160px));
+  grid-template-rows: repeat(auto-fit, minmax(140px, 200px));
+  grid-gap: 45px;
+
+  ${media.desktop} {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 230px));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 300px));
+    grid-gap: 30px;
+  }
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
+  ${transitionCSS};
 `;

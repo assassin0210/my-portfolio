@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { HoverSection, Links, transitionCSS, Wrapper } from "../styled/common";
+import {
+  HoverSection,
+  Links,
+  SkeletonCSS,
+  transitionCSS,
+} from "../styled/common";
 import { SocialMedia } from "./SocialMedia";
 import { useCallback, useState } from "react";
 import { media } from "../styled/media";
@@ -19,30 +24,59 @@ export const MyWorkItem = ({ src, git, link }: IProp) => {
     setStatus(true);
   }, []);
   return (
-    <ItemWrapper>
-      <Wrapper onLoad={loaded} loaded={status}>
-        <Image loaded={status} src={src} alt="" />
-        <HoverSection>
-          <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
-          <SocialMedia $size={"60px"} icon={faLink} href={link} />
-        </HoverSection>
-        <Links />
-      </Wrapper>
-    </ItemWrapper>
+    <Wrapper onLoad={loaded} loaded={status}>
+      <HoverSection>
+        <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
+        <SocialMedia $size={"60px"} icon={faLink} href={link} />
+      </HoverSection>
+      <Image loaded={status} src={src} alt="" />
+      {/*<Links />*/}
+    </Wrapper>
   );
 };
-
-const ItemWrapper = styled.div`
-  gap: 10px;
-`;
 
 const Image = styled.img<{ loaded: boolean }>`
   opacity: ${({ loaded }) => (loaded ? 1 : 0)};
   position: absolute;
-  width: 260px;
-  z-index: 1;
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   ${transitionCSS};
   ${media.desktopBefore} {
     width: 180px;
+  }
+`;
+
+const Wrapper = styled.div<{ loaded?: boolean }>`
+  cursor: pointer;
+  border-radius: 8px;
+  position: relative;
+  width: 230px;
+  height: 300px;
+
+  overflow: hidden;
+  ${transitionCSS};
+  ${({ loaded }) => !loaded && SkeletonCSS};
+  ${media.desktopBefore} {
+    width: 160px;
+    height: 200px;
+  }
+
+  :hover {
+    transform: scale(1.08);
+
+    ${Image} {
+      opacity: 0.3;
+    }
+
+    ${HoverSection} {
+      opacity: 1;
+    }
+
+    ${Links} {
+      opacity: 1;
+    }
   }
 `;

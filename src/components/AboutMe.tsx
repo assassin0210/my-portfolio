@@ -18,6 +18,7 @@ export const AboutMe = () => {
   const { stack, status } = useSelector(
     (state: RootStateType) => state.stackData
   );
+
   return (
     <>
       <Title>{t.aboutMe.title}</Title>

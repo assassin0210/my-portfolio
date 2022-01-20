@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router-dom";
-import { LayoutContainer } from "./common/Container";
+import { LayoutContainer } from "./common/Layout";
 import React from "react";
 import { AboutMe } from "./components/AboutMe";
 import { ContactMe } from "./components/ContactMe";
@@ -22,12 +22,10 @@ export const Routes = () => {
         },
         {
           path: "my-works",
-
           element: <MyWorks />,
         },
         {
           path: "resume",
-
           element: <Resume />,
         },
       ],
