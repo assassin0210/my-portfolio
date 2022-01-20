@@ -78,7 +78,7 @@ const MobileMenu = styled.div<{ menu?: boolean }>`
     :before {
       content: "";
       top: 0;
-      right: -20px;
+      right: -30px;
       height: 100%;
       position: absolute;
       display: block;
