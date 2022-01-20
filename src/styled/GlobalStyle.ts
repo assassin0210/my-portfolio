@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #000;
     color: #57585a;
-    //font-family: 'Lato', sans-serif;
     font-family: 'Inter', sans-serif;
     line-height: 25px;
     font-size: calc(14px + 2 * (100vw / 1700));

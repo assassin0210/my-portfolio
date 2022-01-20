@@ -44,6 +44,7 @@ const Wrapper = styled.div`
     grid-template-rows: repeat(auto-fit, minmax(200px, 300px));
     grid-gap: 30px;
   }
+
   align-items: center;
   justify-content: center;
   ${transitionCSS};
