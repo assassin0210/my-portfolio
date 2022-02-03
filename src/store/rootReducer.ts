@@ -1,13 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { lang } from "./slices/translateSlice";
-import { stackData } from "./slices/stackSlice";
-import { workData } from "./slices/workSlice";
-import { skillsData } from "./slices/skillsSlice";
+import { cocktailsData } from "./slices/cocktailsSlice";
+import { cocktailItem } from "./slices/cocktailItemSlice";
+import { allIngredientsData } from "./slices/ingredientSlice";
 
 export const rootReducer = combineReducers({
-  lang,
-  stackData,
-  workData,
-  skillsData,
+  cocktailsData,
+  cocktailItem,
+  allIngredientsData,
 });
 export type RootStateType = ReturnType<typeof rootReducer>;

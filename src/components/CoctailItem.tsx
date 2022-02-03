@@ -1,39 +1,41 @@
 import styled from "styled-components";
-import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
-import {
-  HoverSection,
-  Links,
-  SkeletonCSS,
-  transitionCSS,
-} from "../styled/common";
-import { SocialMedia } from "./SocialMedia";
-import { useCallback, useState } from "react";
+import { SkeletonCSS, transitionCSS } from "../styled/common";
 import { media } from "../styled/media";
+import { useCallback, useState } from "react";
+import { Link } from "react-router-dom";
 
-interface IProp {
-  link: string;
+export const CocktailItem = ({
+  src,
+  name,
+  id,
+}: {
   src: string;
-  git: string;
-}
-
-export const MyWorkItem = ({ src, git, link }: IProp) => {
+  name: string;
+  id: string;
+}) => {
   const [status, setStatus] = useState(false);
-
   const loaded = useCallback(() => {
     setStatus(true);
   }, []);
+
   return (
-    <Wrapper onLoad={loaded} loaded={status}>
-      <HoverSection>
-        <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
-        <SocialMedia $size={"60px"} icon={faLink} href={link} />
-      </HoverSection>
+    <Wrapper to={`${id}`} onLoad={loaded}>
       <Image loaded={status} src={src} alt="" />
-      {/*<Links />*/}
+      <Name>{name}</Name>
     </Wrapper>
   );
 };
+
+const Name = styled.span`
+  position: absolute;
+  text-align: center;
+  padding: 5px;
+  background: #000;
+  color: white;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+`;
 
 const Image = styled.img<{ loaded: boolean }>`
   opacity: ${({ loaded }) => (loaded ? 1 : 0)};
@@ -50,13 +52,12 @@ const Image = styled.img<{ loaded: boolean }>`
   }
 `;
 
-const Wrapper = styled.div<{ loaded?: boolean }>`
+const Wrapper = styled(Link)<{ loaded?: boolean }>`
   cursor: pointer;
   border-radius: 8px;
   position: relative;
   width: 230px;
   height: 300px;
-
   overflow: hidden;
   ${transitionCSS};
   ${({ loaded }) => !loaded && SkeletonCSS};
@@ -68,17 +69,5 @@ const Wrapper = styled.div<{ loaded?: boolean }>`
 
   :hover {
     transform: scale(1.08);
-
-    ${Image} {
-      opacity: 0.3;
-    }
-
-    ${HoverSection} {
-      opacity: 1;
-    }
-
-    ${Links} {
-      opacity: 1;
-    }
   }
 `;

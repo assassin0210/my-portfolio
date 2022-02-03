@@ -1,0 +1,47 @@
+[
+  {
+    "link": "https://waxon.alexsokol.ru",
+    "git": "https://github.com/assassin0210/waxon",
+    "src": "https://alexsokol.ru/data/work/waxon.jpg"
+  },
+  {
+    "link": "https://tesla.alexsokol.ru",
+    "git": "https://github.com/assassin0210/tesla.jpeg",
+    "src": "https://alexsokol.ru/data/work/tesla.jpg"
+  },
+  {
+    "link": "https://music.alexsokol.ru",
+    "git": "https://github.com/assassin0210/music",
+    "src": "https://alexsokol.ru/data/work/music.jpg"
+  },
+  {
+    "link": "https://pizza.alexsokol.ru",
+    "git": "https://github.com/assassin0210/pizzza",
+    "src": "https://alexsokol.ru/data/work/pizza.jpg"
+  },
+  {
+    "link": "https://basketboll.alexsokol.ru",
+    "git": "https://github.com/assassin0210/basketball",
+    "src": "https://alexsokol.ru/data/work/basketboll.jpg"
+  },
+  {
+    "link": "https://summery.alexsokol.ru",
+    "git": "https://github.com/assassin0210/summary",
+    "src": "https://alexsokol.ru/data/work/summary.jpg"
+  },
+  {
+    "link": "https://game.alexsokol.ru",
+    "git": "https://github.com/assassin0210/table-info",
+    "src": "https://alexsokol.ru/data/work/game.jpg"
+  },
+  {
+    "link": "https://cinema.alexsokol.ru",
+    "git": "https://github.com/assassin0210/registration",
+    "src": "https://alexsokol.ru/data/work/registration.jpg"
+  },
+  {
+    "link": "https://alexsokol.ru",
+    "git": "https://github.com/assassin0210/my-portfolio",
+    "src": "https://alexsokol.ru/data/work/portfolio.jpg"
+  }
+]

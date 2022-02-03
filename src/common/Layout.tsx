@@ -1,26 +1,12 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import React, { FC, useEffect, useMemo, useRef } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import {
-  Container,
-  Menu,
-  ScrollSection,
-  transitionCSS,
-} from "../styled/common";
-import { media } from "../styled/media";
-import { Caret } from "./Caret";
-import { LeftMenu } from "../components/LeftMenu";
-import { Avatar } from "../components/Avatar";
+import { Menu } from "../components/Menu";
+import { scrollStylesCSS } from "../styled/common";
 
 export const LayoutContainer: FC = () => {
   const { pathname } = useLocation();
-  const [menu, setMenu] = useState(false);
-  const setMenuHandler = useCallback(() => {
-    setMenu(!menu);
-  }, [menu]);
 
-  const outClickRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLDivElement | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,97 +17,53 @@ export const LayoutContainer: FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
 
-  useEffect(() => {
-    const outsideClick = (event: any) => {
-      event?.stopPropagation();
-      if (
-        !outClickRef.current?.contains(event.path?.[0] || event.target) &&
-        !buttonRef.current?.contains(event.path?.[0] || event.target)
-      ) {
-        setMenu(false);
-      }
-    };
-    document.addEventListener("click", outsideClick);
-    return () => document.removeEventListener("click", outsideClick);
-  }, []);
+  const data = useMemo(() => new Date().getFullYear().toString(), []);
 
   return (
     <Layout>
-      <LeftMenu />
-      <Avatar />
+      <Header to="/">Shaker</Header>
+      <Menu />
       <Container>
-        <MobileGamburger ref={buttonRef}>
-          <Caret toggle={menu} setToggle={setMenuHandler} />
-        </MobileGamburger>
-        <ScrollSection ref={ref}>
-          <MobileMenu ref={outClickRef} menu={menu}>
-            <LeftMenu />
-          </MobileMenu>
-          <Outlet />
-        </ScrollSection>
+        <Outlet />
       </Container>
+      <Footer>
+        <span>сайт: up.alexsokol.ru</span>
+        <span>Год: {data}</span>
+      </Footer>
     </Layout>
   );
 };
-const MobileMenu = styled.div<{ menu?: boolean }>`
-  position: absolute;
-  ${transitionCSS};
-  z-index: 999;
-  top: 0;
-  left: ${({ menu }) => (menu ? "0" : "-90px")};
-  height: 100%;
 
-  ${Menu} {
-    display: flex;
-    height: 100%;
-
-    :before {
-      content: "";
-      top: 0;
-      right: -30px;
-      height: 100%;
-      position: absolute;
-      display: block;
-      width: 20px;
-      margin-right: 10px;
-      margin-top: 10px;
-      background-image: linear-gradient(
-        to right,
-        rgba(21, 23, 24, 1),
-        rgba(21, 23, 24, 0.5),
-        rgba(21, 23, 24, 0)
-      );
-    }
-  }
-
-  ${media.laptop} {
-    display: none;
-  }
+const Header = styled(Link)`
+  grid-area: header;
+  font-size: 33px;
+  padding: 20px;
+  color: ${({ theme }) => theme.color.green};
+  background-color: ${({ theme }) => theme.color.darkGrey};
 `;
-const MobileGamburger = styled.div`
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  padding: 10px 20px;
-  display: block;
 
-  ${media.laptop} {
-    display: none;
-  }
+const Container = styled.div`
+  grid-area: article;
+  background: white;
+  overflow-y: scroll;
+  ${scrollStylesCSS}
 `;
-const Layout = styled.div`
-  position: relative;
+const Footer = styled.div`
+  grid-area: footer;
   display: flex;
   justify-content: center;
+  gap: 40px;
+  color: ${({ theme }) => theme.color.green};
+  background-color: ${({ theme }) => theme.color.darkGrey};
+`;
+const Layout = styled.div`
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav article article"
+    "footer footer footer";
+  grid-template-rows: 100px 1fr 60px;
+  grid-template-columns: auto 1fr;
   height: 100vh;
-  padding: 6px 0;
-
-  ${media.extraDesktopBefore} {
-    padding: 26px 20px;
-  }
-
-  ${media.laptopBefore} {
-    padding: 0;
-  }
+  margin: 0;
 `;

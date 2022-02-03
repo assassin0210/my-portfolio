@@ -1,18 +1,22 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getWorkRequest } from "./store/requests/getWork";
-import { getStackRequest } from "./store/requests/getStack";
-import { getSkillsRequest } from "./store/requests/getSkillsRequest";
-import { Routes } from "./Routes";
+import React from "react";
+
+import { LayoutContainer } from "./common/Layout";
+import { Ingredients } from "./components/Ingredients";
+import { Cocktails } from "./components/Сocktails";
+import { CocktailDescription } from "./components/CoctailDescription";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getWorkRequest());
-    dispatch(getStackRequest());
-    dispatch(getSkillsRequest());
-  }, [dispatch]);
-  return <Routes />;
+  return (
+    <Routes>
+      <Route path="/" element={<LayoutContainer />}>
+        <Route index element={<Ingredients />} />
+        <Route path="cocktails" element={<Cocktails />} />
+        <Route path="cocktails/:id" element={<CocktailDescription />} />
+        <Route />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
