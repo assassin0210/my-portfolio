@@ -1,15 +1,16 @@
-import styled from "styled-components";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { useCallback, useState } from "react";
+import styled from "styled-components";
+
 import {
   HoverSection,
   Links,
   SkeletonCSS,
   transitionCSS,
 } from "../styled/common";
-import { SocialMedia } from "./SocialMedia";
-import { useCallback, useState } from "react";
 import { media } from "../styled/media";
+import { SocialMedia } from "./SocialMedia";
 
 interface IProp {
   link: string;
@@ -30,7 +31,6 @@ export const MyWorkItem = ({ src, git, link }: IProp) => {
         <SocialMedia $size={"60px"} icon={faLink} href={link} />
       </HoverSection>
       <Image loaded={status} src={src} alt="" />
-      {/*<Links />*/}
     </Wrapper>
   );
 };

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import LocalizedStrings from "react-localization";
 import { useDispatch, useSelector } from "react-redux";
+
 import { RootStateType } from "../store/rootReducer";
 import { setLang } from "../store/slices/translateSlice";
 
@@ -28,12 +29,12 @@ const textContent = new LocalizedStrings({
     resume: {
       title: "Резюме",
       text: {
-        one: "2 года в frontend ",
-        two: "1 год в команде",
+        one: "3 года в frontend ",
+        two: "2 год в команде",
         three: "Middle Frontend ",
       },
       subtitle:
-        "Frontend developer с 2 летним опытом проектирования и разработки пользовательских интерфейсов . Начинал верстальщиком. Сейчас работаю  с использованием  в своих проектах TypeScript и реакт.  Пол года опыт работы с GitHub в команде . Проходил курсы по Photoshop Illustrator.",
+        "Frontend developer с 3 летним опытом проектирования и разработки пользовательских интерфейсов . Начинал верстальщиком. Сейчас работаю  с использованием  в своих проектах TypeScript и реакт. Работал в компании Helium10, разработка приложения для продавцев на Amazon, с использованием собствеяных библиотек. Так же работал в компании DeskAlert, компания занималась и занимается разработкой приложения для работников больниц, поликлиник и учреждений. Так же в компании Zoftify, разрабатывал с 0 дашборд для приложения с магазинами , рекламой и каталогами. Приложение активно используется в ряде Европейских стран и продолжает расширяться.",
     },
   },
   en: {
@@ -59,12 +60,12 @@ const textContent = new LocalizedStrings({
     resume: {
       title: "Resume",
       text: {
-        one: "2 years in the frontend ",
-        two: "1 year in the team",
+        one: "3 years in the frontend ",
+        two: "2 year in the team",
         three: "Middle Frontend ",
       },
       subtitle:
-        "Frontend developer with 2 years of experience in designing and developing user interfaces . I started as a layout designer. Now I am working with the use of TypeScript and react in my projects. Half a year of experience working with GitHub in a team . I took courses in Photoshop Illustrator.",
+        "Frontend developer with 3 years of experience in designing and developing user interfaces . I started as a layout designer. Now I am working with the use of TypeScript and react in my projects. He worked at Helium10, developing an application for sellers on Amazon, using his own libraries. He also worked at DeskAlert, the company has been engaged and is developing an application for employees of hospitals, polyclinics and institutions. Also in the company Zoftify, he developed a dashboard from 0 for an application with stores, advertising and catalogs. The application is actively used in a number of European countries and continues to expand.",
     },
   },
 });
