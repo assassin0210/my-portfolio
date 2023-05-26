@@ -1,3 +1,12 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+
+import { SkillItem } from "../common/SkillItem";
+import { useTranslate } from "../hooks/translate";
+import { RootStateType } from "../store/rootReducer";
 import {
   GreenText,
   GreenTextTick,
@@ -6,14 +15,6 @@ import {
   TextWithLine,
   Title,
 } from "../styled/common";
-
-import styled from "styled-components";
-import { useTranslate } from "../hooks/translate";
-import { SkillItem } from "../common/SkillItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
-import { RootStateType } from "../store/rootReducer";
 
 export const Resume = () => {
   const { t } = useTranslate();
@@ -30,7 +31,7 @@ export const Resume = () => {
       <TextWithLine>{t.resume.subtitle}</TextWithLine>
 
       <SkillWrapper>
-        <Icon icon={faTachometerAlt} />
+        <Icon icon={faTachometerAlt as IconProp} />
         <SkillsSubtitle>Skills</SkillsSubtitle>
       </SkillWrapper>
 

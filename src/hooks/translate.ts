@@ -29,8 +29,8 @@ const textContent = new LocalizedStrings({
     resume: {
       title: "Резюме",
       text: {
-        one: "3 года в frontend ",
-        two: "2 год в команде",
+        one: "2+ года в frontend ",
+        two: "1+ год в команде",
         three: "Middle Frontend ",
       },
       subtitle:
@@ -60,8 +60,8 @@ const textContent = new LocalizedStrings({
     resume: {
       title: "Resume",
       text: {
-        one: "3 years in the frontend ",
-        two: "2 year in the team",
+        one: "2+ years in the frontend ",
+        two: "1+ year in the team",
         three: "Middle Frontend ",
       },
       subtitle:

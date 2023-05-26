@@ -1,3 +1,4 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { useCallback, useState } from "react";
@@ -27,8 +28,12 @@ export const MyWorkItem = ({ src, git, link }: IProp) => {
   return (
     <Wrapper onLoad={loaded} loaded={status}>
       <HoverSection>
-        <SocialMedia $size={"60px"} icon={faGithubSquare} href={git} />
-        <SocialMedia $size={"60px"} icon={faLink} href={link} />
+        <SocialMedia
+          $size={"60px"}
+          icon={faGithubSquare as IconProp}
+          href={git}
+        />
+        <SocialMedia $size={"60px"} icon={faLink as IconProp} href={link} />
       </HoverSection>
       <Image loaded={status} src={src} alt="" />
     </Wrapper>

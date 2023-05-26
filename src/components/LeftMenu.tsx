@@ -1,16 +1,18 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faComment, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
   faBriefcase,
   faCloudDownloadAlt,
   faGlasses,
 } from "@fortawesome/free-solid-svg-icons";
-import { CustomLink } from "../common/CustomLink";
-import { Checkbox } from "../common/Checkbox";
-import { cssGreenHover, Menu } from "../styled/common";
-import { useTranslate } from "../hooks/translate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useEffect } from "react";
+import styled from "styled-components";
+
+import { Checkbox } from "../common/Checkbox";
+import { CustomLink } from "../common/CustomLink";
+import { useTranslate } from "../hooks/translate";
+import { cssGreenHover, Menu } from "../styled/common";
 
 export const LeftMenu = () => {
   const { lang, setT } = useTranslate();
@@ -39,20 +41,20 @@ export const LeftMenu = () => {
       <Checkbox checkHandler={checkHandler} lang={lang as string} />
       <List>
         <CustomLink to="/">
-          <MenuIcon icon={faUser} />
+          <MenuIcon icon={faUser as IconProp} />
         </CustomLink>
         <CustomLink to="contacts">
-          <MenuIcon icon={faComment} />
+          <MenuIcon icon={faComment as IconProp} />
         </CustomLink>
         <CustomLink to="my-works">
-          <MenuIcon icon={faGlasses} />
+          <MenuIcon icon={faGlasses as IconProp} />
         </CustomLink>
         <CustomLink to="resume">
-          <MenuIcon icon={faBriefcase} />
+          <MenuIcon icon={faBriefcase as IconProp} />
         </CustomLink>
       </List>
       <div>
-        <MenuIcon icon={faCloudDownloadAlt} />
+        <MenuIcon icon={faCloudDownloadAlt as IconProp} />
       </div>
     </Menu>
   );
